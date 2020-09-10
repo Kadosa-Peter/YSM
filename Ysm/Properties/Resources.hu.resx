@@ -1,0 +1,871 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Cut" xml:space="preserve">
+    <value>Kivágás</value>
+  </data>
+  <data name="Button_Update" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="Button_Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="Button_Feedback" xml:space="preserve">
+    <value>Visszajelzés</value>
+  </data>
+  <data name="Button_Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Bezárás</value>
+  </data>
+  <data name="Button_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Button_Paste" xml:space="preserve">
+    <value>Beillesztés</value>
+  </data>
+  <data name="Button_AddToFavorites" xml:space="preserve">
+    <value>Kedvenc</value>
+  </data>
+  <data name="Button_VideosChannels" xml:space="preserve">
+    <value>Videók &amp; Feliratkozások</value>
+  </data>
+  <data name="Button_UpdateVideos" xml:space="preserve">
+    <value>Videók Frissítése</value>
+  </data>
+  <data name="Button_CopyVideoUrl" xml:space="preserve">
+    <value>Video Url Másolása</value>
+  </data>
+  <data name="Button_CopyChannelUrl" xml:space="preserve">
+    <value>Csatorn Url Másolása</value>
+  </data>
+  <data name="Button_OpenChannel" xml:space="preserve">
+    <value>Csatorna Megnyitása</value>
+  </data>
+  <data name="Button_OpenVideos" xml:space="preserve">
+    <value>Videók Megnyitása</value>
+  </data>
+  <data name="Button_Rename" xml:space="preserve">
+    <value>Átnevezés</value>
+  </data>
+  <data name="Button_Edit" xml:space="preserve">
+    <value>Szerkesztés</value>
+  </data>
+  <data name="Button_OpenFavorites" xml:space="preserve">
+    <value>Kedvencek Megnyitása</value>
+  </data>
+  <data name="Button_CloseFavorites" xml:space="preserve">
+    <value>Kedvencek Bezárása</value>
+  </data>
+  <data name="Button_View" xml:space="preserve">
+    <value>Nézet</value>
+  </data>
+  <data name="Title_NewCategory" xml:space="preserve">
+    <value>Új Ketgória</value>
+  </data>
+  <data name="Title_Subscriptions" xml:space="preserve">
+    <value>Feliratkozások</value>
+  </data>
+  <data name="Title_Search" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
+  <data name="Button_Yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="Button_No" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="Question_Unsubscirbe_m" xml:space="preserve">
+    <value>Biztos vagy benne, hogy le akarsz iratkozni {xy} csatornákról?</value>
+  </data>
+  <data name="Question_Unsubscirbe_s" xml:space="preserve">
+    <value>Leíratkozól a '{xy}' csatornáról?</value>
+  </data>
+  <data name="Button_UnwatchedVideos" xml:space="preserve">
+    <value>Nézetlen Videók Megjelenítése</value>
+  </data>
+  <data name="Button_AllVideos" xml:space="preserve">
+    <value>Összes Videó Megjelenítése</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Megszakít</value>
+  </data>
+  <data name="Title_DownloadingSubscriptions" xml:space="preserve">
+    <value>Feliratkozások Letöltése </value>
+  </data>
+  <data name="Title_DownloadingVideos" xml:space="preserve">
+    <value>Videók Letöltése</value>
+  </data>
+  <data name="Button_DownloadNewSubscriptions" xml:space="preserve">
+    <value>Új Feliratkozások Letöltése</value>
+  </data>
+  <data name="Button_CreateCategory" xml:space="preserve">
+    <value>Kategória Létrehozása</value>
+  </data>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>Eltávólitás</value>
+  </data>
+  <data name="Button_CopyChannels" xml:space="preserve">
+    <value>Csatornák Url Másolása</value>
+  </data>
+  <data name="Button_CopyVideos" xml:space="preserve">
+    <value>Videók Url Másolása</value>
+  </data>
+  <data name="Button_OpenChannels" xml:space="preserve">
+    <value>Csatornák Megnyitása</value>
+  </data>
+  <data name="Button_SortTitle" xml:space="preserve">
+    <value>Rendezés Cím Szerint</value>
+  </data>
+  <data name="Button_SortDate" xml:space="preserve">
+    <value>Rendezés Dátum Szerint</value>
+  </data>
+  <data name="Button_Open" xml:space="preserve">
+    <value>Megnyitás</value>
+  </data>
+  <data name="Button_OpenInBrowser" xml:space="preserve">
+    <value>Megnyitás {xy} Böngészőben</value>
+  </data>
+  <data name="Button_CopyUrl" xml:space="preserve">
+    <value>Url Másolása</value>
+  </data>
+  <data name="Button_Download" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="Button_Help" xml:space="preserve">
+    <value>Súgó</value>
+  </data>
+  <data name="Title_ShowChannelTooltip" xml:space="preserve">
+    <value>Csatorna helyi súgó megjelenítése.</value>
+  </data>
+  <data name="Button_AllWatched" xml:space="preserve">
+    <value>Összes Megnézetnek Jelölve </value>
+  </data>
+  <data name="Question_Import" xml:space="preserve">
+    <value>Importálás felül fogja írnia a jelenlegi kategória struktúrát. Akarod folytatni?</value>
+  </data>
+  <data name="Button_Login" xml:space="preserve">
+    <value>Bejelentkezve</value>
+  </data>
+  <data name="Button_Logout" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="Title_OpenInBrowser" xml:space="preserve">
+    <value>Megnyitás {xy} bönygészőben:</value>
+  </data>
+  <data name="Title_Logout" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="Button_DownloadVideos" xml:space="preserve">
+    <value>Videók Letöltése</value>
+  </data>
+  <data name="Title_NewVideos" xml:space="preserve">
+    <value>{xy} Új Videó</value>
+  </data>
+  <data name="Title_NewVideo" xml:space="preserve">
+    <value>1 Új Videó</value>
+  </data>
+  <data name="Button_Subscriptions" xml:space="preserve">
+    <value>Deliratkozások</value>
+  </data>
+  <data name="Button_Favorites" xml:space="preserve">
+    <value>Kedvencek</value>
+  </data>
+  <data name="Button_WatchLater" xml:space="preserve">
+    <value>Megnézendő Videók</value>
+  </data>
+  <data name="Button_History" xml:space="preserve">
+    <value>Előzmények</value>
+  </data>
+  <data name="Button_Overview" xml:space="preserve">
+    <value>Áttekintés</value>
+  </data>
+  <data name="Title_SettingsMaximized" xml:space="preserve">
+    <value>YSM indítása teljes képernyőben.</value>
+  </data>
+  <data name="Title_SettingsLastPosition" xml:space="preserve">
+    <value>YSM indítása az utolsó mentett pozícióban.</value>
+  </data>
+  <data name="Title_SettingsDefaultPosition" xml:space="preserve">
+    <value>YSM indítása az alapértelmezett pozícióban.</value>
+  </data>
+  <data name="Title_SettingsLeft" xml:space="preserve">
+    <value>Baloldalt</value>
+  </data>
+  <data name="Title_SettingsRight" xml:space="preserve">
+    <value>Jobboldalt</value>
+  </data>
+  <data name="Title_SettingsHidden" xml:space="preserve">
+    <value>Rejtve</value>
+  </data>
+  <data name="Title_SettingsSidebarPosition" xml:space="preserve">
+    <value>Oldalsáv elhelyezkedése:</value>
+  </data>
+  <data name="Title_SettingsMinimizeSystemTray" xml:space="preserve">
+    <value>YSM Kicsinyítés az értesítési területre.</value>
+  </data>
+  <data name="Title_SettingsCloseSystemTray" xml:space="preserve">
+    <value>YSM bezárása az értesítési területre.</value>
+  </data>
+  <data name="Title_NewSubscription" xml:space="preserve">
+    <value>1 Új Feliratkozás</value>
+  </data>
+  <data name="Title_NewSubscriptions" xml:space="preserve">
+    <value>{xy} Új Feliratkozás</value>
+  </data>
+  <data name="Button_RemoveAll" xml:space="preserve">
+    <value>Összes Eltávolítása</value>
+  </data>
+  <data name="Button_Today" xml:space="preserve">
+    <value>Mai Nap</value>
+  </data>
+  <data name="Button_Yesterday" xml:space="preserve">
+    <value>Tegnap</value>
+  </data>
+  <data name="Button_LastSeven" xml:space="preserve">
+    <value>Utolsó Hét Nap</value>
+  </data>
+  <data name="Button_LastThirty" xml:space="preserve">
+    <value>Utolsó Harminc Nap</value>
+  </data>
+  <data name="Title_FooterSubscriptions" xml:space="preserve">
+    <value>Feliratkozások:</value>
+  </data>
+  <data name="Title_FooterHistory" xml:space="preserve">
+    <value>Előzmények:</value>
+  </data>
+  <data name="Title_FooterFavorites" xml:space="preserve">
+    <value>Kedvencek</value>
+  </data>
+  <data name="Title_FooterWatchLater" xml:space="preserve">
+    <value>Megnézendő Videók:</value>
+  </data>
+  <data name="Title_Views" xml:space="preserve">
+    <value>Megtekintés</value>
+  </data>
+  <data name="Title_DownloadingVideo" xml:space="preserve">
+    <value>Videó Letöltése:</value>
+  </data>
+  <data name="Title_DownloadingAudio" xml:space="preserve">
+    <value>Audio Letöltése:</value>
+  </data>
+  <data name="Title_Converting" xml:space="preserve">
+    <value>Konvertálás</value>
+  </data>
+  <data name="Tooltip_MarkAllWatched" xml:space="preserve">
+    <value>Összes Videó nézetnek jelölve.</value>
+  </data>
+  <data name="Tooltip_NewCategory" xml:space="preserve">
+    <value>Új kategória létrehozása (F3)</value>
+  </data>
+  <data name="Tooltip_Rename" xml:space="preserve">
+    <value>Kategória átnevezése (F2)</value>
+  </data>
+  <data name="Tooltip_Remove" xml:space="preserve">
+    <value>Kategória törlése vagy leíratkozás (del.)</value>
+  </data>
+  <data name="Tooltip_Cut" xml:space="preserve">
+    <value>Kategória vagy feliratkozás kivágása (CTRL+X)</value>
+  </data>
+  <data name="Tooltip_Paste" xml:space="preserve">
+    <value>Kategória vagy feliratkozás beillesztése (CTRL+V)</value>
+  </data>
+  <data name="Tootip_OpenVideo" xml:space="preserve">
+    <value>Video megnyitása az elsődleges böngészőben</value>
+  </data>
+  <data name="Tooltip_OpenChannel" xml:space="preserve">
+    <value>Csatorna megnyitása az elsődleges böngészőben</value>
+  </data>
+  <data name="Tooltip_DownloadNewVideos" xml:space="preserve">
+    <value>Új videók letöltése (F5)</value>
+  </data>
+  <data name="Tooltip_UpdateSubscriptions" xml:space="preserve">
+    <value>Új feliratkozások letöltése (F6)</value>
+  </data>
+  <data name="Tooltip_Settings" xml:space="preserve">
+    <value>Beállítások ablak megnyitása</value>
+  </data>
+  <data name="Tooltip_OpenAssitance" xml:space="preserve">
+    <value>Súgó ablak megnyitása</value>
+  </data>
+  <data name="Title_ShowToolbarTooltip" xml:space="preserve">
+    <value>Mutassa az eszköztár helyi súgót.</value>
+  </data>
+  <data name="Question_MarkAllVideoWatched" xml:space="preserve">
+    <value>Legyen az összes videó az összes kategóriában megnézetnek jelölve?</value>
+  </data>
+  <data name="Button_DontAskAgain" xml:space="preserve">
+    <value>Ne kérdezze meg újra.</value>
+  </data>
+  <data name="Title_SettingsShowSubscriptionsOnlyWithUnwatchedVideos" xml:space="preserve">
+    <value>Feliratkozások megjelenítése meg nem nézett videókkal.</value>
+  </data>
+  <data name="Title_SettingsEnableAutoplay" xml:space="preserve">
+    <value>Videók lejátszása azonnal megnyitás után.</value>
+  </data>
+  <data name="Button_Locate" xml:space="preserve">
+    <value>Felfed</value>
+  </data>
+  <data name="Title_SettingsApplicationStartupPosition" xml:space="preserve">
+    <value>Alkalmazás indulási elhelyezkedése:</value>
+  </data>
+  <data name="Title_SettingsAutoDownload" xml:space="preserve">
+    <value>Új videók letöltése </value>
+  </data>
+  <data name="Title_SettingsRemoveAds" xml:space="preserve">
+    <value>Youtube hirdetések eltávolítása.</value>
+  </data>
+  <data name="Button_Folders" xml:space="preserve">
+    <value>Mappák</value>
+  </data>
+  <data name="Title_SettingsDownloads" xml:space="preserve">
+    <value>Letöltések Mappa</value>
+  </data>
+  <data name="Title_Download" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="Title_Downloding" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="Title_SettingsShowLast15Videos" xml:space="preserve">
+    <value>Mutasd az utolsó tizenöt videót.</value>
+  </data>
+  <data name="Button_DayBeforeYesterday" xml:space="preserve">
+    <value>Tegnapelött</value>
+  </data>
+  <data name="Button_OpenVideosPage" xml:space="preserve">
+    <value>Videók Oldal Megnyitása</value>
+  </data>
+  <data name="Button_OpenChannelPage" xml:space="preserve">
+    <value>Csatorna Oldal Megnyitása</value>
+  </data>
+  <data name="Button_ShowAllSubscriptions" xml:space="preserve">
+    <value>Mutasd Az Összes Feliratkozást</value>
+  </data>
+  <data name="Button_ShowSubscriptionsWithVideo" xml:space="preserve">
+    <value>Mutasd A Feliratkozásokat Videóval</value>
+  </data>
+  <data name="Button_DownloadAllVideos" xml:space="preserve">
+    <value>Összes Videó Letöltése</value>
+  </data>
+  <data name="Button_Player" xml:space="preserve">
+    <value>Lejátszó</value>
+  </data>
+  <data name="Button_PlayerPrevious" xml:space="preserve">
+    <value>Előző Videó</value>
+  </data>
+  <data name="Button_PlayerNext" xml:space="preserve">
+    <value>Következő Videó</value>
+  </data>
+  <data name="Button_PlayerReload" xml:space="preserve">
+    <value>Újratöltés</value>
+  </data>
+  <data name="Title_FooterOverview" xml:space="preserve">
+    <value>Áttekintés:</value>
+  </data>
+  <data name="Title_InvalidProductKey" xml:space="preserve">
+    <value>Megadott termékkulcs nem érvényes.</value>
+  </data>
+  <data name="Title_ProductKey" xml:space="preserve">
+    <value>Termékkulcs:</value>
+  </data>
+  <data name="Button_Validate" xml:space="preserve">
+    <value>Érvényesít</value>
+  </data>
+  <data name="WindowTitle_ProductKey" xml:space="preserve">
+    <value>Termékkulcs</value>
+  </data>
+  <data name="Tooltip_Feedback" xml:space="preserve">
+    <value>Visszajelzés</value>
+  </data>
+  <data name="Title_NewVideosNW" xml:space="preserve">
+    <value>Mutassa új videók esetén az értesítési ablakot.</value>
+  </data>
+  <data name="Title_NewSubscriptionsNW" xml:space="preserve">
+    <value>Mutassa új feliratkozások esetén az értesítési ablakot.</value>
+  </data>
+  <data name="Title_PlayNotiicationSound" xml:space="preserve">
+    <value>Értesítési hang lejátszása.</value>
+  </data>
+  <data name="Title_MarkVideosWatchedStartup" xml:space="preserve">
+    <value>Videók nézetnek jelölése az alkalmazás indulásakor.</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>YSM - Youtube Subscription Manager</value>
+  </data>
+  <data name="About_Website" xml:space="preserve">
+    <value>Weboldal</value>
+  </data>
+  <data name="About_FAQ" xml:space="preserve">
+    <value>F.A.Q.</value>
+  </data>
+  <data name="About_UserGuide" xml:space="preserve">
+    <value>Felhasználói Kézikönyv</value>
+  </data>
+  <data name="Button_About" xml:space="preserve">
+    <value>YSM Névjegye</value>
+  </data>
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Megjelenés</value>
+  </data>
+  <data name="Settings_Player" xml:space="preserve">
+    <value>Lejátszó</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Értesítések</value>
+  </data>
+  <data name="Settings_Downloads" xml:space="preserve">
+    <value>Letöltések</value>
+  </data>
+  <data name="Settings_Subscriptions" xml:space="preserve">
+    <value>Feliratkozások</value>
+  </data>
+  <data name="Title_Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="Title_SerialWindowTitle" xml:space="preserve">
+    <value>Bróbaidőszak befejeződött.</value>
+  </data>
+  <data name="Button_Licence" xml:space="preserve">
+    <value>Licensz</value>
+  </data>
+  <data name="Button_ClosePlayer" xml:space="preserve">
+    <value>Lejátszó Bezárása</value>
+  </data>
+  <data name="Settings_StartApp" xml:space="preserve">
+    <value>YSM indítása a rendszer indulásakor.</value>
+  </data>
+  <data name="Settings_StartAppNotification" xml:space="preserve">
+    <value>YSM indítása az értesítési területen.</value>
+  </data>
+  <data name="Settings_StartAppTaskbar" xml:space="preserve">
+    <value>YSM indítása a tálcán.</value>
+  </data>
+  <data name="Button_CloseAllPlayers" xml:space="preserve">
+    <value>Összes Lejátszó Bezárása</value>
+  </data>
+  <data name="Button_OpenTab" xml:space="preserve">
+    <value>Megnyitás (Új Lap)</value>
+  </data>
+  <data name="Title_Favorites" xml:space="preserve">
+    <value>Kedvencek</value>
+  </data>
+  <data name="Title_WatchLater" xml:space="preserve">
+    <value>Megnézendő</value>
+  </data>
+  <data name="Title_History" xml:space="preserve">
+    <value>Előzmények</value>
+  </data>
+  <data name="Title_AssistanceStop" xml:space="preserve">
+    <value>Space gomb vizsgálat szüneteltetetése/indítása.</value>
+  </data>
+  <data name="Question_Open" xml:space="preserve">
+    <value>Biztos vagy benne, hogy meg akarsz nyitni _count_ oldalt a(z) _browser_ böngészőben</value>
+  </data>
+  <data name="About_Update1" xml:space="preserve">
+    <value>Jelenleg a legújabb YSM verziót használja.</value>
+  </data>
+  <data name="About_Update2" xml:space="preserve">
+    <value>Frissített YSM verzió elérhető.</value>
+  </data>
+  <data name="Button_DownloadNewVideos" xml:space="preserve">
+    <value>Új Videók Letöltése</value>
+  </data>
+  <data name="Button_NewPlaylist" xml:space="preserve">
+    <value>Új Lejátszási Lista</value>
+  </data>
+  <data name="Title_Playlists" xml:space="preserve">
+    <value>Lejátszási Listák</value>
+  </data>
+  <data name="Question_Favorites_RemoveAll" xml:space="preserve">
+    <value>Biztos vagy benne, hogy az összes kedvenc videódat törölni akarod?</value>
+  </data>
+  <data name="Question_WatchLater_RemoveAll" xml:space="preserve">
+    <value>Biztos vagy benne, hogy az összes megnézendő videódat törölni akarod?</value>
+  </data>
+  <data name="Button_UserGuide" xml:space="preserve">
+    <value>Felhasználói Kézikönyv</value>
+  </data>
+  <data name="Button_Tutorial" xml:space="preserve">
+    <value>Útmutatók </value>
+  </data>
+  <data name="Title_MarkAsUnwatched" xml:space="preserve">
+    <value>jelöld az összes videót 'nem megnézetnek', amit </value>
+  </data>
+  <data name="Button_MarkUnwatched" xml:space="preserve">
+    <value>Jelöld "Meg nem nézetnek"</value>
+  </data>
+  <data name="Button_MarkWatched" xml:space="preserve">
+    <value>Jelöld Megnézetnek</value>
+  </data>
+  <data name="Button_Add" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="Title_NewPlaylist" xml:space="preserve">
+    <value>Új Lejátszási Lista</value>
+  </data>
+  <data name="Button_AddPlaylist" xml:space="preserve">
+    <value>Hozzáadás Lejátszási Listához</value>
+  </data>
+  <data name="Button_Playlists" xml:space="preserve">
+    <value>Lejátszási Listák</value>
+  </data>
+  <data name="Title_PlaylistWindow" xml:space="preserve">
+    <value>Hozz létre vagy válasz ki egy lejátszási listát...</value>
+  </data>
+  <data name="Title_MarkAsWatched" xml:space="preserve">
+    <value>jelöld az összes videót 'megnézetnek', ami</value>
+  </data>
+  <data name="Title_AskToMarkAllVideosWatched" xml:space="preserve">
+    <value>Indulásánál kérdezzen rá hogy, jelölje a videókat megnézetnek.</value>
+  </data>
+  <data name="Title_PlaylistContainsVideo" xml:space="preserve">
+    <value>A Lejátszási lista(_XY_) már tartalmazza a Videót:</value>
+  </data>
+  <data name="Question_Playlist_RemoveAll" xml:space="preserve">
+    <value>Biztos vagy benne, hogy el akarod távolítani az összes videót a lejátszási listáról?</value>
+  </data>
+  <data name="Question_Playlist_Delete" xml:space="preserve">
+    <value>Biztos vagy benne, hogy törölni akarod ezt a lejátszási listát</value>
+  </data>
+  <data name="Button_Shuffle" xml:space="preserve">
+    <value>Keverés</value>
+  </data>
+  <data name="Button_RepeatAll" xml:space="preserve">
+    <value>Összes Ismétlése</value>
+  </data>
+  <data name="Button_Autoplay" xml:space="preserve">
+    <value>Automatikus lejátszás</value>
+  </data>
+  <data name="Button_DownloadAll" xml:space="preserve">
+    <value>Összes Letöltése</value>
+  </data>
+  <data name="Info_ChangeSubscriptionView1" xml:space="preserve">
+    <value>A feliratkozás nem látható a jelenlegi megjelenítési módban (Feliratkozások megjelenítése megnézetlen videókkal)</value>
+  </data>
+  <data name="Info_ChangeSubscriptionView2" xml:space="preserve">
+    <value>Megakarod változtatni a feliratkozások megjelenítési módját a következőre: „Mutasd az összes feliratkozást”?</value>
+  </data>
+  <data name="Question_Unsub1" xml:space="preserve">
+    <value>A leiratkozás folyamata még nem fejeződött be.</value>
+  </data>
+  <data name="Question_Unsub2" xml:space="preserve">
+    <value>Biztos vagy benn, hogy be akarod zárni az alkalmazást?</value>
+  </data>
+  <data name="Settings_ShowPatreonBtn" xml:space="preserve">
+    <value>Mutasd a Patreon gombot (ha elérhető).</value>
+  </data>
+  <data name="Title_ShowAllVideos" xml:space="preserve">
+    <value>Összes Videó Megjelenítése</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="Question_DeleteAccount" xml:space="preserve">
+    <value>Biztos vagy benne, hogy törölni a akarod a YSM YouTube fiokodat. A művelet nem lesz hatással a YouTube fiokodra.\nEz a változás újraindítást igényel.</value>
+  </data>
+  <data name="Title_DeleteAccount" xml:space="preserve">
+    <value>Törlés: helyi fiokadatok törlése</value>
+  </data>
+  <data name="Title_ControlPlaylistGlobalHotkey" xml:space="preserve">
+    <value>Lejátszási lista vezérlése globális billentyűparancsokkal.</value>
+  </data>
+  <data name="Settings_Videos" xml:space="preserve">
+    <value>Videók</value>
+  </data>
+  <data name="Title_KeepAutoplayTurnedOn" xml:space="preserve">
+    <value>Automatikus lejátszás maradjon bekapcsolva.</value>
+  </data>
+  <data name="Settings_Sync" xml:space="preserve">
+    <value>Szinkronizáció</value>
+  </data>
+  <data name="Sync_Title1" xml:space="preserve">
+    <value>Felhőben már található adata. Hogy akarod végrehajtani a szinkronizációt?</value>
+  </data>
+  <data name="Sync_Title2" xml:space="preserve">
+    <value>Válaszd a "Felhő adatok cseréje” opciót abban az esetben, ha felül akarod írni a felhőben tárolt adatokat, a helyi gépen található adatokkal.</value>
+  </data>
+  <data name="Sync_Title3" xml:space="preserve">
+    <value>Válaszd a “Helyi adatok cseréje” opciót abban az esetben, ha felül akarod írni a helyi gépen tárolt adatokat, a felhőben található adatokkal.</value>
+  </data>
+  <data name="Button_ReplaceLocalData" xml:space="preserve">
+    <value>Helyi adatok cseréje</value>
+  </data>
+  <data name="Button_ReplaceCloudData" xml:space="preserve">
+    <value>Felhő adatok cseréje</value>
+  </data>
+  <data name="Title_SynchronizingData" xml:space="preserve">
+    <value>YSM Adatok Szinkronizálása</value>
+  </data>
+  <data name="Title_AllowGlobalHotkeys" xml:space="preserve">
+    <value>Globális billentyűparancsok  engedélyezése.</value>
+  </data>
+  <data name="Settings_History" xml:space="preserve">
+    <value>Előzmények</value>
+  </data>
+  <data name="Button_ClearHistory" xml:space="preserve">
+    <value>Összes megtekintési előzmény törlése.</value>
+  </data>
+  <data name="Button_PauseHistory" xml:space="preserve">
+    <value>Megtekintési előzmények rögzítésének szüneteltetése.</value>
+  </data>
+  <data name="Button_TurnOnHistory" xml:space="preserve">
+    <value>A Megtekintési előzmények bekapcsolása.</value>
+  </data>
+  <data name="Text_PlaylistUrl" xml:space="preserve">
+    <value>Lejátszási lista URL</value>
+  </data>
+  <data name="Text_PlaylistUrlInvalid" xml:space="preserve">
+    <value>Lejátszási lista URL érvénytelen.</value>
+  </data>
+  <data name="Button_CopyText" xml:space="preserve">
+    <value>Szöveg Másolása</value>
+  </data>
+  <data name="Button_SearchGoogle" xml:space="preserve">
+    <value>Keresés Google:</value>
+  </data>
+  <data name="Button_OpenChannelInBrowser" xml:space="preserve">
+    <value>Csatorna Megnyitása Böngészőben</value>
+  </data>
+  <data name="Tooltip_RenamePlaylist" xml:space="preserve">
+    <value>Lejátszási lista átnevezése (F2)</value>
+  </data>
+  <data name="Tooltip_RemovePlaylist" xml:space="preserve">
+    <value>Lejátszási lista törlése (Del.)</value>
+  </data>
+  <data name="Tooltip_NewPlaylist" xml:space="preserve">
+    <value>Új lejátszási lista létrehozása (F3)</value>
+  </data>
+  <data name="Title_ShowSidebar" xml:space="preserve">
+    <value>Mutassa a nézet oldalsávot.</value>
+  </data>
+  <data name="Button_Colors" xml:space="preserve">
+    <value>Színek</value>
+  </data>
+  <data name="Title_VideoAddedPlaylist" xml:space="preserve">
+    <value>Videó hozzá lett adva a lejátszási listához.</value>
+  </data>
+  <data name="Button_Markers" xml:space="preserve">
+    <value>Jelölések </value>
+  </data>
+  <data name="Button_Marker" xml:space="preserve">
+    <value>Megjelöl</value>
+  </data>
+  <data name="Button_Create" xml:space="preserve">
+    <value>Létrehoz</value>
+  </data>
+  <data name="Text_Comment" xml:space="preserve">
+    <value>Megjegyzés</value>
+  </data>
+  <data name="Settings_ShowFavoritesIcon" xml:space="preserve">
+    <value>Kedvencek parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowWatchlaterIcon" xml:space="preserve">
+    <value>Megnézendő parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowLocateIcon" xml:space="preserve">
+    <value>Jegyzet parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowDownloadIcon" xml:space="preserve">
+    <value>Letöltés parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowNewtabIcon" xml:space="preserve">
+    <value>Új lap parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowPlaylistIcon" xml:space="preserve">
+    <value>Lejátszási listák  parancs megjelenítése.</value>
+  </data>
+  <data name="Button_DefaultColor" xml:space="preserve">
+    <value>Alapértelmezett Szín </value>
+  </data>
+  <data name="Button_CustomColors" xml:space="preserve">
+    <value>Egyedi Színek</value>
+  </data>
+  <data name="Settings_ShowBookmarkBtn" xml:space="preserve">
+    <value>Jegyzet parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowLocateBtn" xml:space="preserve">
+    <value>Felfedés parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowDownloadBtn" xml:space="preserve">
+    <value>Letöltés parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowWatchLaterBtn" xml:space="preserve">
+    <value>Megnézendő parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowFavoritesBtn" xml:space="preserve">
+    <value>Kedvencek parancs megjelenítése.</value>
+  </data>
+  <data name="Settings_ShowPlaylistBtn" xml:space="preserve">
+    <value>Lejátszási listák  parancs megjelenítése.</value>
+  </data>
+  <data name="Question_Channel_Delete_From_Playlist" xml:space="preserve">
+    <value>Biztos vagy benne, hogy törölni akarod ezt a csatornát | a lejátszási listáról?</value>
+  </data>
+  <data name="Button_Iterations" xml:space="preserve">
+    <value>Iterációk</value>
+  </data>
+  <data name="Title_AskToContinuePlayback" xml:space="preserve">
+    <value>Rákérdezés a lejátszás folytatására.</value>
+  </data>
+  <data name="Button_AllUnwatched" xml:space="preserve">
+    <value>Összes Megjelölése "Meg nem nézetnek"</value>
+  </data>
+  <data name="Button_Mark" xml:space="preserve">
+    <value>Megjelölés...</value>
+  </data>
+  <data name="Button_Continue" xml:space="preserve">
+    <value>Folytatás</value>
+  </data>
+  <data name="Button_ReopenClosedTab" xml:space="preserve">
+    <value>Bezárt Lap Megnyitása</value>
+  </data>
+  <data name="Text_VideoAddedPlaylist" xml:space="preserve">
+    <value>Videó hozzá lett adva a lejátszási listához (xy).</value>
+  </data>
+  <data name="Text_VideoNotVisible1" xml:space="preserve">
+    <value>A videó nem látható a jelenlegi nézetben (Mutasd a meg nem nézett videókat).</value>
+  </data>
+  <data name="Text_VideoNotVisible2" xml:space="preserve">
+    <value>Átakarod váltani a megjelenítési módot a következőre: „Mutasd az összes videót”?</value>
+  </data>
+  <data name="Text_NewSubscription" xml:space="preserve">
+    <value>xy új feliratkozás.</value>
+  </data>
+  <data name="Text_NewSubscriptions" xml:space="preserve">
+    <value>xy új feliratkozás.</value>
+  </data>
+  <data name="Text_NewVideo" xml:space="preserve">
+    <value>xy új videó.</value>
+  </data>
+  <data name="Text_NewVideos" xml:space="preserve">
+    <value>xy új videó.</value>
+  </data>
+  <data name="Title_Iterations" xml:space="preserve">
+    <value>Iterációk</value>
+  </data>
+  <data name="Text_Day" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="Text_Days" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="Text_MarkAllWatched" xml:space="preserve">
+    <value>Jelöld meg az összes videót megnézetnek, ami régebbi, mint</value>
+  </data>
+  <data name="Text_MarkAllUnwatched" xml:space="preserve">
+    <value>Jelöld meg az összes videót megnézetlennek, ami újabb mint</value>
+  </data>
+  <data name="Title_Welcome" xml:space="preserve">
+    <value>Üdvözlia A YSM</value>
+  </data>
+  <data name="Title_Minutes" xml:space="preserve">
+    <value>percenként.</value>
+  </data>
+  <data name="Title_Comments" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="Button_Comments" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="Settings_ShowCommentsBtn" xml:space="preserve">
+    <value>*</value>
+  </data>
+</root>

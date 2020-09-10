@@ -1,0 +1,60 @@
+﻿<Window x:Class="Ysm.Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Ysm.Test"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        Loaded="MainWindow_OnLoaded"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+
+    <StackPanel>
+        <DockPanel LastChildFill="False" Background="#FF2E2E2E" RenderOptions.BitmapScalingMode="HighQuality">
+            <!--  Window Controls  -->
+            <controls:IconButton Width="24"
+                                 Height="28"
+                                 DockPanel.Dock="Right"
+                                 MouseEnterIcon="Window/close_enter.png"
+                                 MouseLeaveIcon="Window/close_leave.png"
+                                 Padding="0,4,0,0" />
+            <controls:IconButton Width="24"
+                                 Height="28"
+                                 Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                 DockPanel.Dock="Right"
+                                 MouseEnterIcon="Window/maximize_enter.png"
+                                 MouseLeaveIcon="Window/maximize_leave.png"
+                                 Padding="2,4,0,0"
+                                 Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:ExtendedWindow}}, Path=ShowMaxButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <controls:IconButton Width="24"
+                                 Height="28"
+                                 Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                                 DockPanel.Dock="Right"
+                                 MouseEnterIcon="Window/restore_down_enter.png"
+                                 MouseLeaveIcon="Window/restore_down_leave.png"
+                                 Padding="0,2,0,0"
+                                 Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:ExtendedWindow}}, Path=ShowRestoreButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <controls:IconButton Width="24"
+                                 Height="28"
+                                 DockPanel.Dock="Right"
+                                 MouseEnterIcon="Window/minimize_enter.png"
+                                 MouseLeaveIcon="Window/minimize_leave.png"
+                                 Padding="0,10,0,0" />
+            <controls:IconButton Width="24"
+                                 Height="28"
+                                 DockPanel.Dock="Right"
+                                 MouseEnterIcon="Window/help_active.png"
+                                 MouseLeaveIcon="Window/help_inactive.png"
+                                 />
+
+        </DockPanel>
+
+    </StackPanel>
+
+
+
+
+</Window>

@@ -1,0 +1,74 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Ysm.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Style TargetType="{x:Type local:IconToggleButton}">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconToggleButton}">
+                    <Grid
+                        d:DesignHeight="25"
+                        d:DesignWidth="25"
+                        Background="{TemplateBinding Background}">
+                        <Grid x:Name="on" Margin="{TemplateBinding Padding}">
+                            <Image
+                                x:Name="onLeave"
+                                Source="{TemplateBinding OnLeave}"
+                                Stretch="None"
+                                Visibility="Hidden" />
+                            <Image
+                                x:Name="onEnter"
+                                Width="Auto"
+                                Height="Auto"
+                                VerticalAlignment="Stretch"
+                                Source="{TemplateBinding OnEnter}"
+                                Stretch="None" />
+                        </Grid>
+                        <Grid
+                            x:Name="off"
+                            Margin="{TemplateBinding Padding}"
+                            Visibility="Collapsed">
+                            <Image
+                                x:Name="offLeave"
+                                Source="{TemplateBinding OffLeave}"
+                                Stretch="None"
+                                Visibility="Hidden" />
+                            <Image
+                                x:Name="offenter"
+                                Width="Auto"
+                                Height="Auto"
+                                VerticalAlignment="Stretch"
+                                Source="{TemplateBinding OffEnter}"
+                                Stretch="None" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="onLeave" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="onEnter" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="offLeave" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="offenter" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="off" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="on" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

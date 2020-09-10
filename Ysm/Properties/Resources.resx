@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Cut" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="Button_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Button_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Button_Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Button_Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Button_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Button_Paste" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="Button_AddToFavorites" xml:space="preserve">
+    <value>Favorite</value>
+  </data>
+  <data name="Button_VideosChannels" xml:space="preserve">
+    <value>Videos &amp; Subscriptions</value>
+  </data>
+  <data name="Button_UpdateVideos" xml:space="preserve">
+    <value>Update Videos</value>
+  </data>
+  <data name="Button_CopyVideoUrl" xml:space="preserve">
+    <value>Copy Video Url</value>
+  </data>
+  <data name="Button_CopyChannelUrl" xml:space="preserve">
+    <value>Copy Channel Url</value>
+  </data>
+  <data name="Button_OpenChannel" xml:space="preserve">
+    <value>Open Channel</value>
+  </data>
+  <data name="Button_OpenVideos" xml:space="preserve">
+    <value>Open Videos</value>
+  </data>
+  <data name="Button_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Button_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Button_OpenFavorites" xml:space="preserve">
+    <value>Open Favorites</value>
+  </data>
+  <data name="Button_CloseFavorites" xml:space="preserve">
+    <value>Close Favorites</value>
+  </data>
+  <data name="Button_View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Title_NewCategory" xml:space="preserve">
+    <value>New Category</value>
+  </data>
+  <data name="Title_Subscriptions" xml:space="preserve">
+    <value>Subscriptions</value>
+  </data>
+  <data name="Title_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Button_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Button_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Question_Unsubscirbe_m" xml:space="preserve">
+    <value>Are you sure you want to unsubscribe from {xy} channels?</value>
+    <comment>x</comment>
+  </data>
+  <data name="Question_Unsubscirbe_s" xml:space="preserve">
+    <value>Unsubscribe from '{xy}'?</value>
+    <comment>x</comment>
+  </data>
+  <data name="Button_UnwatchedVideos" xml:space="preserve">
+    <value>Show Only Unwatched Videos</value>
+  </data>
+  <data name="Button_AllVideos" xml:space="preserve">
+    <value>Show All Videos</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Title_DownloadingSubscriptions" xml:space="preserve">
+    <value>Downloading Subscriptions</value>
+  </data>
+  <data name="Title_DownloadingVideos" xml:space="preserve">
+    <value>Downloading Videos</value>
+  </data>
+  <data name="Button_DownloadNewSubscriptions" xml:space="preserve">
+    <value>Download New Subscriptions</value>
+  </data>
+  <data name="Button_CreateCategory" xml:space="preserve">
+    <value>Create Category</value>
+  </data>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Button_CopyChannels" xml:space="preserve">
+    <value>Copy  Channels Url</value>
+  </data>
+  <data name="Button_CopyVideos" xml:space="preserve">
+    <value>Copy Videos Url</value>
+  </data>
+  <data name="Button_OpenChannels" xml:space="preserve">
+    <value>Open Channels</value>
+  </data>
+  <data name="Button_SortTitle" xml:space="preserve">
+    <value>Sort By Title</value>
+  </data>
+  <data name="Button_SortDate" xml:space="preserve">
+    <value>Sort By Date</value>
+  </data>
+  <data name="Button_Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Button_OpenInBrowser" xml:space="preserve">
+    <value>Open In {xy}</value>
+  </data>
+  <data name="Button_CopyUrl" xml:space="preserve">
+    <value>Copy Url</value>
+  </data>
+  <data name="Button_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Button_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Title_ShowChannelTooltip" xml:space="preserve">
+    <value>Show channel tooltip.</value>
+  </data>
+  <data name="Button_AllWatched" xml:space="preserve">
+    <value>Mark All as Watched</value>
+  </data>
+  <data name="Question_Import" xml:space="preserve">
+    <value>Import will overwrite your current category structure. Do you want to proceed?</value>
+  </data>
+  <data name="Button_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Button_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Title_OpenInBrowser" xml:space="preserve">
+    <value>Open in {xy}:</value>
+  </data>
+  <data name="Title_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Button_DownloadVideos" xml:space="preserve">
+    <value>Download Videos</value>
+  </data>
+  <data name="Title_NewVideos" xml:space="preserve">
+    <value>{xy} New Videos</value>
+  </data>
+  <data name="Title_NewVideo" xml:space="preserve">
+    <value>1 New Video</value>
+  </data>
+  <data name="Button_Subscriptions" xml:space="preserve">
+    <value>Subscriptions</value>
+  </data>
+  <data name="Button_Favorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="Button_WatchLater" xml:space="preserve">
+    <value>Watch Later</value>
+  </data>
+  <data name="Button_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Button_Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Title_SettingsMaximized" xml:space="preserve">
+    <value>Start YSM in full screen.</value>
+  </data>
+  <data name="Title_SettingsLastPosition" xml:space="preserve">
+    <value>Start YSM in the last saved position.</value>
+  </data>
+  <data name="Title_SettingsDefaultPosition" xml:space="preserve">
+    <value>Start YSM in the default position.</value>
+  </data>
+  <data name="Title_SettingsLeft" xml:space="preserve">
+    <value>Left Side</value>
+  </data>
+  <data name="Title_SettingsRight" xml:space="preserve">
+    <value>Right Side</value>
+  </data>
+  <data name="Title_SettingsHidden" xml:space="preserve">
+    <value>Hidden</value>
+  </data>
+  <data name="Title_SettingsSidebarPosition" xml:space="preserve">
+    <value>Sidebar position:</value>
+  </data>
+  <data name="Title_SettingsMinimizeSystemTray" xml:space="preserve">
+    <value>Minimize YSM to system tray.</value>
+  </data>
+  <data name="Title_SettingsCloseSystemTray" xml:space="preserve">
+    <value>Close YSM to system tray.</value>
+  </data>
+  <data name="Title_NewSubscription" xml:space="preserve">
+    <value>1 New Subscription</value>
+  </data>
+  <data name="Title_NewSubscriptions" xml:space="preserve">
+    <value>{xy} New Subscriptions</value>
+  </data>
+  <data name="Button_RemoveAll" xml:space="preserve">
+    <value>Remove All</value>
+  </data>
+  <data name="Button_Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Button_Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
+  <data name="Button_LastSeven" xml:space="preserve">
+    <value>Last Seven Days</value>
+  </data>
+  <data name="Button_LastThirty" xml:space="preserve">
+    <value>Last Thirty Days</value>
+  </data>
+  <data name="Title_FooterSubscriptions" xml:space="preserve">
+    <value>Subscriptions:</value>
+  </data>
+  <data name="Title_FooterHistory" xml:space="preserve">
+    <value>History:</value>
+  </data>
+  <data name="Title_FooterFavorites" xml:space="preserve">
+    <value>Favorites: </value>
+  </data>
+  <data name="Title_FooterWatchLater" xml:space="preserve">
+    <value>Watch Later:</value>
+  </data>
+  <data name="Title_Views" xml:space="preserve">
+    <value>Views</value>
+  </data>
+  <data name="Title_DownloadingVideo" xml:space="preserve">
+    <value>Downloading Video:</value>
+  </data>
+  <data name="Title_DownloadingAudio" xml:space="preserve">
+    <value>Downloading Audio:</value>
+  </data>
+  <data name="Title_Converting" xml:space="preserve">
+    <value>Converting</value>
+  </data>
+  <data name="Tooltip_MarkAllWatched" xml:space="preserve">
+    <value>Mark all Videos as watched</value>
+  </data>
+  <data name="Tooltip_NewCategory" xml:space="preserve">
+    <value>Create a new category (F3)</value>
+  </data>
+  <data name="Tooltip_Rename" xml:space="preserve">
+    <value>Rename a category (F2)</value>
+  </data>
+  <data name="Tooltip_Remove" xml:space="preserve">
+    <value>Delete category or unsubscribe (del.)</value>
+  </data>
+  <data name="Tooltip_Cut" xml:space="preserve">
+    <value>Cut category or subscription (CTRL+X)</value>
+  </data>
+  <data name="Tooltip_Paste" xml:space="preserve">
+    <value>Paste category or subscription (CTRL+V)</value>
+  </data>
+  <data name="Tootip_OpenVideo" xml:space="preserve">
+    <value>Open video in the primary browser</value>
+  </data>
+  <data name="Tooltip_OpenChannel" xml:space="preserve">
+    <value>Open channel in the primary browser</value>
+  </data>
+  <data name="Tooltip_DownloadNewVideos" xml:space="preserve">
+    <value>Download new videos (F5)</value>
+  </data>
+  <data name="Tooltip_UpdateSubscriptions" xml:space="preserve">
+    <value>Download new subscriptions (F6)</value>
+  </data>
+  <data name="Tooltip_Settings" xml:space="preserve">
+    <value>Open settings</value>
+  </data>
+  <data name="Tooltip_OpenAssitance" xml:space="preserve">
+    <value>Open assistance</value>
+  </data>
+  <data name="Title_ShowToolbarTooltip" xml:space="preserve">
+    <value>Show toolbar tooltips.</value>
+  </data>
+  <data name="Question_MarkAllVideoWatched" xml:space="preserve">
+    <value>Mark all videos in all categories as watched?</value>
+  </data>
+  <data name="Button_DontAskAgain" xml:space="preserve">
+    <value>Don't ask me this again.</value>
+  </data>
+  <data name="Title_SettingsShowSubscriptionsOnlyWithUnwatchedVideos" xml:space="preserve">
+    <value>Show subscriptions only with unwatched videos.</value>
+  </data>
+  <data name="Title_SettingsEnableAutoplay" xml:space="preserve">
+    <value>Automatically start playing Youtube videos.</value>
+  </data>
+  <data name="Button_Locate" xml:space="preserve">
+    <value>Locate</value>
+  </data>
+  <data name="Title_SettingsApplicationStartupPosition" xml:space="preserve">
+    <value>Application startup position:</value>
+  </data>
+  <data name="Title_SettingsAutoDownload" xml:space="preserve">
+    <value>Download new videos every</value>
+  </data>
+  <data name="Title_SettingsRemoveAds" xml:space="preserve">
+    <value>Remove Youtube Ads.</value>
+  </data>
+  <data name="Button_Folders" xml:space="preserve">
+    <value>Folders</value>
+  </data>
+  <data name="Title_SettingsDownloads" xml:space="preserve">
+    <value>Downloads Folder:</value>
+  </data>
+  <data name="Title_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Title_Downloding" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
+  <data name="Title_SettingsShowLast15Videos" xml:space="preserve">
+    <value>Show only the last fifteen videos.</value>
+  </data>
+  <data name="Button_DayBeforeYesterday" xml:space="preserve">
+    <value>Day Before Yesterday</value>
+  </data>
+  <data name="Button_OpenVideosPage" xml:space="preserve">
+    <value>Open Videos Page</value>
+  </data>
+  <data name="Button_OpenChannelPage" xml:space="preserve">
+    <value>Open Channel Page</value>
+  </data>
+  <data name="Button_ShowAllSubscriptions" xml:space="preserve">
+    <value>Show All Subscriptions</value>
+  </data>
+  <data name="Button_ShowSubscriptionsWithVideo" xml:space="preserve">
+    <value>Show Subscriptions With Video Only</value>
+  </data>
+  <data name="Button_DownloadAllVideos" xml:space="preserve">
+    <value>Download All Videos</value>
+  </data>
+  <data name="Button_Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="Button_PlayerPrevious" xml:space="preserve">
+    <value>Previous Video</value>
+  </data>
+  <data name="Button_PlayerNext" xml:space="preserve">
+    <value>Next Video</value>
+  </data>
+  <data name="Button_PlayerReload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="Title_FooterOverview" xml:space="preserve">
+    <value>Overview:</value>
+  </data>
+  <data name="Title_InvalidProductKey" xml:space="preserve">
+    <value>The product key you have entered is invalid.</value>
+  </data>
+  <data name="Title_ProductKey" xml:space="preserve">
+    <value>Product key:</value>
+  </data>
+  <data name="Button_Validate" xml:space="preserve">
+    <value>Validate</value>
+  </data>
+  <data name="WindowTitle_ProductKey" xml:space="preserve">
+    <value>Product Key</value>
+  </data>
+  <data name="Tooltip_Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Title_NewVideosNW" xml:space="preserve">
+    <value>Show new videos notification window.</value>
+  </data>
+  <data name="Title_NewSubscriptionsNW" xml:space="preserve">
+    <value>Show new subscriptions notification window.</value>
+  </data>
+  <data name="Title_PlayNotiicationSound" xml:space="preserve">
+    <value>Play notification sound.</value>
+  </data>
+  <data name="Title_MarkVideosWatchedStartup" xml:space="preserve">
+    <value>Mark videos as watched at startup.</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>YSM - YouTube Subscription Manager</value>
+  </data>
+  <data name="About_Update1" xml:space="preserve">
+    <value>You currently have the latest version of YSM.</value>
+  </data>
+  <data name="About_Update2" xml:space="preserve">
+    <value>An updated version of YSM application is available.</value>
+  </data>
+  <data name="About_Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="About_FAQ" xml:space="preserve">
+    <value>F.A.Q.</value>
+  </data>
+  <data name="About_UserGuide" xml:space="preserve">
+    <value>User Guide</value>
+  </data>
+  <data name="Button_About" xml:space="preserve">
+    <value>About YSM</value>
+  </data>
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Settings_Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Settings_Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="Settings_Subscriptions" xml:space="preserve">
+    <value>Subscriptions</value>
+  </data>
+  <data name="Title_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Title_SerialWindowTitle" xml:space="preserve">
+    <value>Your trial has been expired.</value>
+  </data>
+  <data name="Button_Licence" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="Button_ClosePlayer" xml:space="preserve">
+    <value>Close Player</value>
+  </data>
+  <data name="Settings_StartApp" xml:space="preserve">
+    <value>Start YSM on system startup.</value>
+  </data>
+  <data name="Settings_StartAppNotification" xml:space="preserve">
+    <value>Start YSM in the Notification Area.</value>
+  </data>
+  <data name="Settings_StartAppTaskbar" xml:space="preserve">
+    <value>Start YSM on the Taskbar.</value>
+  </data>
+  <data name="Button_CloseAllPlayers" xml:space="preserve">
+    <value>Close All Players</value>
+  </data>
+  <data name="Button_OpenTab" xml:space="preserve">
+    <value>Open (New Tab)</value>
+  </data>
+  <data name="Title_Favorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="Title_WatchLater" xml:space="preserve">
+    <value>Watch Later</value>
+  </data>
+  <data name="Title_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Title_AssistanceStop" xml:space="preserve">
+    <value>Press Space to stop/start investigation.</value>
+  </data>
+  <data name="Question_Open" xml:space="preserve">
+    <value>Are you sure you want to open _count_ pages in the _browser_?</value>
+  </data>
+  <data name="Button_DownloadNewVideos" xml:space="preserve">
+    <value>Download New Videos</value>
+  </data>
+  <data name="Button_NewPlaylist" xml:space="preserve">
+    <value>New Playlist</value>
+  </data>
+  <data name="Title_Playlists" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="Question_Favorites_RemoveAll" xml:space="preserve">
+    <value>Are you sure you want to remove all of your favorites?</value>
+  </data>
+  <data name="Question_WatchLater_RemoveAll" xml:space="preserve">
+    <value>Are you sure you want to remove all of your 'watch-later' videos?</value>
+  </data>
+  <data name="Button_UserGuide" xml:space="preserve">
+    <value>User Guide</value>
+  </data>
+  <data name="Button_Tutorial" xml:space="preserve">
+    <value>Tutorials</value>
+  </data>
+  <data name="Title_MarkAsUnwatched" xml:space="preserve">
+    <value>Mark as "unwatched"</value>
+  </data>
+  <data name="Button_MarkUnwatched" xml:space="preserve">
+    <value>Mark as Unwatched</value>
+  </data>
+  <data name="Button_MarkWatched" xml:space="preserve">
+    <value>Mark as Watched</value>
+  </data>
+  <data name="Button_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Title_NewPlaylist" xml:space="preserve">
+    <value>New Playlist</value>
+  </data>
+  <data name="Button_AddPlaylist" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="Button_Playlists" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="Title_PlaylistWindow" xml:space="preserve">
+    <value>Select Or Create a New Playlist...</value>
+  </data>
+  <data name="Title_MarkAsWatched" xml:space="preserve">
+    <value>Mark as "watched"</value>
+  </data>
+  <data name="Title_AskToMarkAllVideosWatched" xml:space="preserve">
+    <value>Ask to mark all videos as watched at startup.</value>
+  </data>
+  <data name="Title_PlaylistContainsVideo" xml:space="preserve">
+    <value>The playlist(_XY_) already contains the video: </value>
+  </data>
+  <data name="Question_Playlist_RemoveAll" xml:space="preserve">
+    <value>Are you sure you want to remove all videos from your playlist?</value>
+  </data>
+  <data name="Question_Playlist_Delete" xml:space="preserve">
+    <value>Are you sure you want to delete this playlist</value>
+  </data>
+  <data name="Button_Shuffle" xml:space="preserve">
+    <value>Shuffle</value>
+  </data>
+  <data name="Button_RepeatAll" xml:space="preserve">
+    <value>Repeat All</value>
+  </data>
+  <data name="Button_Autoplay" xml:space="preserve">
+    <value>Autoplay</value>
+  </data>
+  <data name="Button_DownloadAll" xml:space="preserve">
+    <value>Download All</value>
+  </data>
+  <data name="Info_ChangeSubscriptionView1" xml:space="preserve">
+    <value>Subscription is not visible in the current view (Show subscriptions with video only).</value>
+  </data>
+  <data name="Info_ChangeSubscriptionView2" xml:space="preserve">
+    <value>Do you want to change the subscription view mode to "Show all subscriptions"?</value>
+  </data>
+  <data name="Question_Unsub1" xml:space="preserve">
+    <value>Unsubscription process has not finished yet.</value>
+  </data>
+  <data name="Question_Unsub2" xml:space="preserve">
+    <value>Are you sure you want to close the application? </value>
+  </data>
+  <data name="Settings_ShowPatreonBtn" xml:space="preserve">
+    <value>Show Patreon Button (if available).</value>
+  </data>
+  <data name="Title_ShowAllVideos" xml:space="preserve">
+    <value>Show all videos</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Question_DeleteAccount" xml:space="preserve">
+    <value>Are you sure you want to delete your YSM  YouTube account data? It won't impact your YouTube account.\nThis change requires restart.</value>
+  </data>
+  <data name="Title_DeleteAccount" xml:space="preserve">
+    <value>Delete: delete local account data</value>
+  </data>
+  <data name="Title_ControlPlaylistGlobalHotkey" xml:space="preserve">
+    <value>Control playlist with global hotkeys.</value>
+  </data>
+  <data name="Settings_Videos" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="Title_KeepAutoplayTurnedOn" xml:space="preserve">
+    <value>Keep Autoplay turned on. </value>
+  </data>
+  <data name="Settings_Sync" xml:space="preserve">
+    <value>Synchronization</value>
+  </data>
+  <data name="Sync_Title1" xml:space="preserve">
+    <value>There are already data in the cloud. How would you like to perform the synchronization?</value>
+  </data>
+  <data name="Sync_Title2" xml:space="preserve">
+    <value>Select 'Replace Cloud Data' only if you wish to overwrite your existing data in the cloud with that present locally on your machine.</value>
+  </data>
+  <data name="Sync_Title3" xml:space="preserve">
+    <value>Select ’Replace local data' only if you wish to overwrite your existing local data with your cloud data.</value>
+  </data>
+  <data name="Button_ReplaceLocalData" xml:space="preserve">
+    <value>Replace local data</value>
+  </data>
+  <data name="Button_ReplaceCloudData" xml:space="preserve">
+    <value>Replace Cloud Data</value>
+  </data>
+  <data name="Title_SynchronizingData" xml:space="preserve">
+    <value>Synchronizing YSM Data</value>
+  </data>
+  <data name="Title_AllowGlobalHotkeys" xml:space="preserve">
+    <value>Allow global hotkeys.</value>
+  </data>
+  <data name="Settings_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Button_ClearHistory" xml:space="preserve">
+    <value>Clear all watch history.</value>
+  </data>
+  <data name="Button_PauseHistory" xml:space="preserve">
+    <value>Pause watch history.</value>
+  </data>
+  <data name="Button_TurnOnHistory" xml:space="preserve">
+    <value>Turn on watch history.</value>
+  </data>
+  <data name="Text_PlaylistUrl" xml:space="preserve">
+    <value>Playlist URL</value>
+  </data>
+  <data name="Text_PlaylistUrlInvalid" xml:space="preserve">
+    <value>Playlist URL is invalid.</value>
+  </data>
+  <data name="Button_CopyText" xml:space="preserve">
+    <value>Copy Text</value>
+  </data>
+  <data name="Button_SearchGoogle" xml:space="preserve">
+    <value>Search Google for</value>
+  </data>
+  <data name="Button_OpenChannelInBrowser" xml:space="preserve">
+    <value>Open Channel in Browser</value>
+  </data>
+  <data name="Tooltip_RenamePlaylist" xml:space="preserve">
+    <value>Rename a playlist (F2)</value>
+  </data>
+  <data name="Tooltip_RemovePlaylist" xml:space="preserve">
+    <value>Remove a playlist (.Del)</value>
+  </data>
+  <data name="Tooltip_NewPlaylist" xml:space="preserve">
+    <value>Create a new playlist (F3)</value>
+  </data>
+  <data name="Title_ShowSidebar" xml:space="preserve">
+    <value>Show view sidebar.</value>
+  </data>
+  <data name="Button_Colors" xml:space="preserve">
+    <value>Colors</value>
+  </data>
+  <data name="Title_VideoAddedPlaylist" xml:space="preserve">
+    <value>Video added to the playlist.</value>
+  </data>
+  <data name="Button_Markers" xml:space="preserve">
+    <value>Markers</value>
+  </data>
+  <data name="Button_Marker" xml:space="preserve">
+    <value>Mark</value>
+  </data>
+  <data name="Button_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Text_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Settings_ShowFavoritesIcon" xml:space="preserve">
+    <value>Show Favorites button.</value>
+  </data>
+  <data name="Settings_ShowWatchlaterIcon" xml:space="preserve">
+    <value>Show 'Watch Later' button.</value>
+  </data>
+  <data name="Settings_ShowLocateIcon" xml:space="preserve">
+    <value>Show Locate button.</value>
+  </data>
+  <data name="Settings_ShowDownloadIcon" xml:space="preserve">
+    <value>Show Download button.</value>
+  </data>
+  <data name="Settings_ShowNewtabIcon" xml:space="preserve">
+    <value>Show 'New Tab' button.</value>
+  </data>
+  <data name="Settings_ShowPlaylistIcon" xml:space="preserve">
+    <value>Show Playlists button.</value>
+  </data>
+  <data name="Button_DefaultColor" xml:space="preserve">
+    <value>Default Color</value>
+  </data>
+  <data name="Button_CustomColors" xml:space="preserve">
+    <value>Custom Colors</value>
+  </data>
+  <data name="Settings_ShowBookmarkBtn" xml:space="preserve">
+    <value>Show Note button.</value>
+  </data>
+  <data name="Settings_ShowLocateBtn" xml:space="preserve">
+    <value>Show Locate button.</value>
+  </data>
+  <data name="Settings_ShowDownloadBtn" xml:space="preserve">
+    <value>Show Download button.</value>
+  </data>
+  <data name="Settings_ShowWatchLaterBtn" xml:space="preserve">
+    <value>Show 'Watch Later' button.</value>
+  </data>
+  <data name="Settings_ShowFavoritesBtn" xml:space="preserve">
+    <value>Show Favorites button.</value>
+  </data>
+  <data name="Settings_ShowPlaylistBtn" xml:space="preserve">
+    <value>Show Playlists button.</value>
+  </data>
+  <data name="Question_Channel_Delete_From_Playlist" xml:space="preserve">
+    <value>Are you sure you want to delete this channel | from the playlist?</value>
+  </data>
+  <data name="Button_Iterations" xml:space="preserve">
+    <value>Iterations</value>
+  </data>
+  <data name="Title_AskToContinuePlayback" xml:space="preserve">
+    <value>Ask to continue playback.</value>
+  </data>
+  <data name="Button_AllUnwatched" xml:space="preserve">
+    <value>Mark All as Unwatched</value>
+  </data>
+  <data name="Button_Mark" xml:space="preserve">
+    <value>Mark...</value>
+  </data>
+  <data name="Button_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Button_ReopenClosedTab" xml:space="preserve">
+    <value>Reopen Closed Tab</value>
+  </data>
+  <data name="Text_VideoAddedPlaylist" xml:space="preserve">
+    <value>Video added to the playlist (xy).</value>
+  </data>
+  <data name="Text_VideoNotVisible1" xml:space="preserve">
+    <value>The Video is not visible in the current view(Show only unwatched videos).</value>
+  </data>
+  <data name="Text_VideoNotVisible2" xml:space="preserve">
+    <value>Do you want to change the video display mode to "Show all videos"?</value>
+  </data>
+  <data name="Text_NewSubscription" xml:space="preserve">
+    <value>xy new subscription.</value>
+  </data>
+  <data name="Text_NewSubscriptions" xml:space="preserve">
+    <value>xy new subscriptions.</value>
+  </data>
+  <data name="Text_NewVideo" xml:space="preserve">
+    <value>xy new video.</value>
+  </data>
+  <data name="Text_NewVideos" xml:space="preserve">
+    <value>xy new videos.</value>
+  </data>
+  <data name="Title_Iterations" xml:space="preserve">
+    <value>Iterations</value>
+  </data>
+  <data name="Text_Day" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="Text_Days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="Text_MarkAllWatched" xml:space="preserve">
+    <value>Mark all videos as watched which are older than</value>
+  </data>
+  <data name="Text_MarkAllUnwatched" xml:space="preserve">
+    <value>Mark all videos as unwatched which are newer than</value>
+  </data>
+  <data name="Title_Welcome" xml:space="preserve">
+    <value>Welcome to YSM</value>
+  </data>
+  <data name="Title_Minutes" xml:space="preserve">
+    <value>minutes.</value>
+  </data>
+  <data name="Title_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Button_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Settings_ShowCommentsBtn" xml:space="preserve">
+    <value>Show Comments button.</value>
+  </data>
+</root>

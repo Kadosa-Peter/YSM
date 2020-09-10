@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="Ysm.Views.FooterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:behaviors="clr-namespace:Ysm.Assets.Behaviors"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Ysm.Properties"
+             d:DesignHeight="29"
+             d:DesignWidth="800"
+             Loaded="FooterView_OnLoaded"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Padding" Value="10,0,10,0" />
+            <Setter Property="Foreground" Value="{StaticResource Footer_Foreground}" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Border Background="Transparent">
+                            <TextBlock x:Name="title"
+                                       Margin="{TemplateBinding Padding}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Style="{StaticResource TextBlockStyle}"
+                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="title" Property="Foreground" Value="{StaticResource Toolbar_ActiveForeground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <controls:Assistance Document="ysm-statusbar">
+        <Grid Background="{StaticResource Footer_Background}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="26" />
+            </Grid.RowDefinitions>
+
+            <ProgressBar x:Name="ServiceProgressBar"
+                         Height="4"
+                         Background="#FFE6E6E6"
+                         BorderThickness="0"
+                         Maximum="100"
+                         Minimum="0"
+                         Style="{StaticResource ProgressBarStyle}"
+                         Visibility="Collapsed" />
+
+            <DockPanel Grid.Row="1" LastChildFill="False">
+
+                <!--  Count  -->
+                <DockPanel x:Name="CountHost" LastChildFill="False">
+                    <TextBlock Margin="10,0,0,0"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}"
+                               Text="{x:Static p:Resources.Title_FooterSubscriptions}" />
+                    <TextBlock x:Name="CountLabel"
+                               Margin="5,0,0,0"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}" />
+                </DockPanel>
+
+                <!--  Autoplay/Shuffle/Repeat All  -->
+                <DockPanel x:Name="AutoplayHost"
+                           Margin="15,0,0,0"
+                           Background="{StaticResource Footer_Background}"
+                           LastChildFill="False"
+                           Visibility="Collapsed">
+                    <Rectangle Width="1"
+                               Fill="{StaticResource Footer_Border}" />
+                    <TextBlock x:Name="AutoplayLabel"
+                               Margin="15,0,0,0"
+                               VerticalAlignment="Center"
+                               MouseLeftButtonDown="Autoplay_OnClick"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}"
+                               Text="{x:Static p:Resources.Button_Autoplay}"
+                               Visibility="Collapsed" />
+                    <TextBlock x:Name="ShuffleLabel"
+                               Margin="6,0,0,0"
+                               MouseLeftButtonDown="Shuffle_OnClick"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}"
+                               Text="{x:Static p:Resources.Button_Shuffle}"
+                               Visibility="Collapsed" />
+                    <TextBlock x:Name="RepeatAllLabel"
+                               Margin="6,0,0,0"
+                               MouseLeftButtonDown="RepeatAll_OnClick"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}"
+                               Text="{x:Static p:Resources.Button_RepeatAll}"
+                               Visibility="Collapsed" />
+                </DockPanel>
+
+                <TextBlock x:Name="UnsubscriptionLabel"
+                           Margin="10,0,0,0"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"
+                           Foreground="{StaticResource Footer_Foreground}"
+                           Style="{StaticResource TextBlockStyle}" />
+
+                <!--  Video & Subscription Service Commands  -->
+                <DockPanel x:Name="ServiceHost"
+                           Margin="15,0,0,0"
+                           Background="{StaticResource Footer_Background}"
+                           LastChildFill="False"
+                           Visibility="Collapsed">
+                    <Rectangle Width="1"
+                               Fill="{StaticResource Footer_Border}" />
+                    <Button x:Name="ServiceLabel"
+                            Margin="15,0,0,0"
+                            VerticalAlignment="Center"
+                            Click="CancelService_OnClick"
+                            Padding="0,0,2,0"
+                            Style="{StaticResource ButtonStyle}" />
+                    <TextBlock Width="11"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}">
+                        <i:Interaction.Behaviors>
+                            <behaviors:DotAnimationBehavior />
+                        </i:Interaction.Behaviors>
+                    </TextBlock>
+                    <TextBlock x:Name="ProgressLabel"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Footer_Foreground}"
+                               Style="{StaticResource TextBlockStyle}" />
+                </DockPanel>
+
+
+                <!--  View Commands  -->
+                <DockPanel x:Name="ViewCommandHost"
+                           Dock="Right"
+                           LastChildFill="False">
+                    <Button x:Name="SubscriptionViewMode_Toggle"
+                            Click="ChangeSubscriptionViewMode_OnClick"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource ButtonStyle}" />
+                    <Rectangle Width="1"
+                               Margin="5,2,5,2"
+                               DockPanel.Dock="Right"
+                               Fill="{StaticResource Footer_Border}" />
+                    <Button x:Name="VideoViewMode_Toggle"
+                            Click="ChangeVideoViewMode_OnClick"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource ButtonStyle}" />
+                </DockPanel>
+
+            </DockPanel>
+
+        </Grid>
+    </controls:Assistance>
+</UserControl>

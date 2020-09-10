@@ -1,0 +1,33 @@
+﻿<Window
+    x:Class="Ysm.Windows.VideoDragWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assets="clr-namespace:Ysm.Assets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="VideoDragWindow"
+    AllowsTransparency="True"
+    Background="Transparent"
+    IsHitTestVisible="False"
+    Opacity="0.9"
+    ShowInTaskbar="False"
+    SizeToContent="WidthAndHeight"
+    Topmost="True"
+    WindowStartupLocation="Manual"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+
+    <Grid>
+        <assets:Thumbnail
+            x:Name="Thumbnail"
+            Width="170"
+            Height="90"
+            Margin="3">
+            <assets:Thumbnail.Effect>
+                <DropShadowEffect Opacity="0.6" ShadowDepth="1" />
+            </assets:Thumbnail.Effect>
+        </assets:Thumbnail>
+    </Grid>
+
+</Window>

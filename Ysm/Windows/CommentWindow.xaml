@@ -1,0 +1,97 @@
+﻿<controls:ExtendedWindow x:Class="Ysm.Windows.CommentWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:data="clr-namespace:Ysm.Data.Comments;assembly=Ysm.Data"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:p="clr-namespace:Ysm.Properties"
+                         Title="CommentWindow"
+                         Width="800"
+                         Height="450"
+                         Loaded="CommentWindow_OnLoaded"
+                         Style="{StaticResource ExtendedWindowStyle}"
+                         WindowStartupLocation="CenterScreen"
+                         mc:Ignorable="d">
+
+    <controls:ExtendedWindow.Resources>
+
+        <DataTemplate x:Key="CommentTemplate" DataType="{x:Type data:Comment}">
+            <DockPanel>
+                <Image Width="30"
+                       Height="30"
+                       Margin="10"
+                       Source="{Binding ImageUrl}" />
+                <TextBlock VerticalAlignment="Center" Text="{Binding Text}" />
+            </DockPanel>
+        </DataTemplate>
+
+
+    </controls:ExtendedWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Background="{StaticResource Header_Background}"
+                BorderBrush="{StaticResource Toolbar_Border}"
+                BorderThickness="0,0,0,1"
+                MouseLeftButtonDown="Header_MouseLeftButtonDown"
+                MouseMove="Header_OnMouseMove">
+            <DockPanel LastChildFill="False">
+                <TextBlock x:Name="Title"
+                           Margin="15,0,0,0"
+                           VerticalAlignment="Center"
+                           FontSize="13"
+                           Foreground="{StaticResource Header_Foreground}"
+                           Style="{StaticResource TextBlockStyle}"
+                           Text="{x:Static p:Resources.Title_Comments}" />
+
+
+                <controls:IconButton Width="24"
+                                     Height="25"
+                                     Background="{StaticResource Header_Background}"
+                                     Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/close_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/close_leave.png"
+                                     Padding="0,0,0,0" />
+                <controls:IconButton Width="24"
+                                     Height="25"
+                                     Background="{StaticResource Header_Background}"
+                                     Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/maximize_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/maximize_leave.png"
+                                     Padding="2,0,0,0"
+                                     Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:ExtendedWindow}}, Path=ShowMaxButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <controls:IconButton Width="24"
+                                     Height="25"
+                                     Background="{StaticResource Header_Background}"
+                                     Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/restore_down_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/restore_down_leave.png"
+                                     Padding="0,0,0,0"
+                                     Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:ExtendedWindow}}, Path=ShowRestoreButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <controls:IconButton Width="24"
+                                     Height="25"
+                                     Background="{StaticResource Header_Background}"
+                                     Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/minimize_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/minimize_leave.png"
+                                     Padding="0,8,0,0" />
+
+
+            </DockPanel>
+        </Border>
+
+        <ListBox x:Name="CommentList"
+                 Grid.Row="2"
+                 ItemTemplate="{StaticResource CommentTemplate}"
+                 ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:ExtendedWindow}, AncestorLevel=1, Mode=FindAncestor}, Path=Comments}" />
+    </Grid>
+</controls:ExtendedWindow>

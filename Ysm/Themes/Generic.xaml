@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Video.xaml" />
+        <ResourceDictionary Source="Channel.xaml" />
+        <ResourceDictionary Source="Category.xaml" />
+        <ResourceDictionary Source="Notify.xaml" />
+        <ResourceDictionary Source="Playlists.xaml" />
+        <ResourceDictionary Source="Markers.xaml" />
+        <ResourceDictionary Source="Root.xaml" />
+        <ResourceDictionary Source="Iteration.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,30 @@
+﻿<controls1:ExtendedWindow x:Class="Ysm.Feedback.CloseWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:controls1="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+                         Title="CloseWindow"
+                         Width="330"
+                         Height="120"
+                          Icon="Resources/icon.ico"
+                         Loaded="CloseWindow_OnLoaded"
+                         ResizeMode="NoResize"
+                         Style="{DynamicResource ExtendedWindowStyle}"
+                         WindowStartupLocation="CenterScreen"
+                         mc:Ignorable="d">
+    <Grid Background="{DynamicResource Window_Background}" MouseLeftButtonDown="Background_OnMouseLeftButtonDown">
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center"
+                       Margin="0,0,0,5"
+                       FontSize="15"
+                       Style="{DynamicResource TextBlockStyle}"
+                       Text="The message has been sent." />
+            <TextBlock HorizontalAlignment="Center"
+                       Style="{DynamicResource TextBlockStyle}"
+                       Text="Thank you for your feedback." />
+        </StackPanel>
+
+    </Grid>
+</controls1:ExtendedWindow>

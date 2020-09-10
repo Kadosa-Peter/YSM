@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Ysm.Windows.PlayerSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:e="clr-namespace:Ysm.Assets"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Ysm.Properties"
+             d:DesignHeight="500"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <Grid Background="White">
+        <StackPanel Margin="10">
+            <!--todo: bug ha az autoplay off - akkor video skipp-nél elszáll a videó lejátszás-->
+            <CheckBox Margin="0,0,0,0"
+                      Visibility="Collapsed"
+                      Content="{x:Static p:Resources.Title_SettingsEnableAutoplay}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=Autoplay}" />
+
+            <CheckBox Margin="0,0,0,0"
+                      Content="{x:Static p:Resources.Title_SettingsRemoveAds}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=RemoveAds}" />
+
+            <CheckBox Margin="0,15,0,0"
+                      Content="{x:Static p:Resources.Title_AskToContinuePlayback}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=AskToContinuePlayback}" />
+
+            <CheckBox Margin="0,15,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowBookmarkBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowMarkerBtn}" />
+
+            <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowLocateBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowLocateBtn}" />
+
+            <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowDownloadBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowDownloadBtn}" />
+
+            <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowWatchLaterBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowWatchLaterBtn}" />
+
+            <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowFavoritesBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowFavoritesBtn}" />
+
+            <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowPlaylistBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowPlaylistBtn}" />
+
+          <!--  <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowCommentsBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowCommentsBtn}" /> -->
+
+            <CheckBox Margin="0,7,0,0"
+                      Content="{x:Static p:Resources.Settings_ShowPatreonBtn}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowPatreonLink}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Ysm.Windows.SubscriptionSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:converters="clr-namespace:Ysm.Assets.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:e="clr-namespace:Ysm.Assets"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Ysm.Properties"
+             Unloaded="SubscriptionSettings_OnUnloaded"
+             d:DesignHeight="500"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:StateConverter x:Key="StateConverter" />
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <StackPanel Margin="10">
+            <CheckBox x:Name="AutoMarkAllWatched"
+                      Margin="0,0,0,0"
+                      Click="AutoMarkAllWatched_OnClick"
+                      Content="{x:Static p:Resources.Title_MarkVideosWatchedStartup}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=MarkVideosWatchedStartup}" />
+
+            <CheckBox x:Name="AskMarkAllWatched"
+                      Margin="0,15,0,0"
+                      Click="AskMarkAllWatched_OnClick"
+                      Content="{x:Static p:Resources.Title_AskToMarkAllVideosWatched}"
+                      IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=AskMarkAllVideoWatched}" />
+
+            <DockPanel Margin="0,15,0,0" LastChildFill="False">
+                <CheckBox Content="{x:Static p:Resources.Title_SettingsAutoDownload}" IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=AutoDownload}" />
+                <controls:IconRepeatButton x:Name="IncreaseBtn"
+                                           Width="20"
+                                           Click="Increase_OnClick"
+                                           Interval="100"
+                                           MouseEnterIcon="/Resources/Icons/Buttons/upEnter.png"
+                                           MouseLeaveIcon="/Resources/Icons/Buttons/upLeave.png" />
+                <Border Width="30"
+                        Height="26"
+                        BorderBrush="{StaticResource Window_Border}"
+                        BorderThickness="1">
+                    <TextBlock x:Name="Minutes"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="13.5"
+                               Style="{StaticResource TextBlockStyle}"
+                               Text="10"
+                               TextAlignment="Center" />
+                </Border>
+                <controls:IconRepeatButton x:Name="DecreaseBtn"
+                                           Width="20"
+                                           Click="Decrease_OnClick"
+                                           Interval="100"
+                                           MouseEnterIcon="/Resources/Icons/Buttons/downEnter.png"
+                                           MouseLeaveIcon="/Resources/Icons/Buttons/downLeave.png" />
+
+                <TextBlock Text="{x:Static p:Resources.Title_Minutes}" Style="{StaticResource TextBlockStyle}" VerticalAlignment="Center"></TextBlock>
+            </DockPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

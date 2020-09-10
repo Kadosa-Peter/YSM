@@ -1,0 +1,173 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:extendedTreeItem="clr-namespace:Ysm.Controls">
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    <!--  TreeArrow Data  -->
+    <PathGeometry x:Key="TreeArrow" Figures="M0,0 L0,6 L6,0 z" />
+
+    <!--  ExpandCollapseToggle Style  -->
+    <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border
+                        Width="16"
+                        Height="16"
+                        Padding="5,5,5,5"
+                        Background="Transparent">
+                        <Path
+                            x:Name="ExpandPath"
+                            Data="{StaticResource TreeArrow}"
+                            Fill="{TemplateBinding Foreground}"
+                            Stroke="{x:Null}"
+                            StrokeThickness="0">
+                            <Path.RenderTransform>
+                                <RotateTransform Angle="135" CenterX="3" CenterY="3" />
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="ExpandPath" Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180" CenterX="3" CenterY="3" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ExtendedTreeViewItem Style  -->
+    <Style TargetType="{x:Type extendedTreeItem:ExtendedTreeItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="FontFamily" Value="Segoe UI Semibold" />
+        <Setter Property="FontSize" Value="12.5" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type extendedTreeItem:ExtendedTreeItem}">
+                    <Grid AllowDrop="True" Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            x:Name="rectangle"
+                            Grid.RowSpan="1"
+                            Grid.Column="1"
+                            Width="Auto"
+                            Margin="-500,0,0,0"
+                            HorizontalAlignment="Stretch"
+                            Fill="{DynamicResource List_SelectedBackground}"
+                            Opacity="0"
+                            Stroke="{x:Null}" />
+                        <ToggleButton
+                            x:Name="PART_Expander"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Width="19"
+                            Margin="1.5,0,1.5,0"
+                            Background="{x:Null}"
+                            BorderBrush="{x:Null}"
+                            ClickMode="Press"
+                            Foreground="{DynamicResource List_Foreground}"
+                            IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                            Style="{StaticResource ExpandCollapseToggleStyle}" />
+                        <Rectangle
+                            x:Name="Placeholder"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Width="19"
+                            Opacity="0" />
+                        <ContentPresenter
+                            x:Name="PART_Header"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            ContentSource="Header"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <ItemsPresenter
+                            x:Name="ItemsHost"
+                            Grid.Row="1"
+                            Grid.Column="1" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsExpanded" Value="False" />
+                                <Condition Property="CanCollapse" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsRenaming}" Value="True" />
+                                <Condition Binding="{Binding IsSelected}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="rectangle" Property="Opacity" Value="0.3" />
+                        </MultiDataTrigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="rectangle" Property="Opacity" Value="1" />
+                            <Setter TargetName="PART_Expander" Property="Foreground" Value="{DynamicResource List_SelectedForeground}" />
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsDragOver}" Value="True" />
+                                <Condition Binding="{Binding IsSelected}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="rectangle" Property="Opacity" Value="0.3" />
+                        </MultiDataTrigger>
+                        <Trigger Property="HasItems" Value="False">
+                            <Setter TargetName="PART_Expander" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                        <Trigger Property="CanCollapse" Value="False">
+                            <Setter TargetName="PART_Expander" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="True">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TreeItemContainer" TargetType="{x:Type extendedTreeItem:ExtendedTreeItem}">
+        <Setter Property="Visibility" Value="{Binding Visibility, Mode=TwoWay}" />
+        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+        <Setter Property="IsDragOver" Value="{Binding IsDragOver, Mode=TwoWay}" />
+        <Setter Property="IsRenaming" Value="{Binding IsRenaming, Mode=TwoWay}" />
+        <Setter Property="IsRendered" Value="{Binding IsRendered, Mode=TwoWay}" />
+        <Setter Property="CanCollapse" Value="{Binding CanCollapse}" />
+        <Setter Property="CanDelete" Value="{Binding CanDelete}" />
+        <Setter Property="CanRename" Value="{Binding CanRename}" />
+        <Setter Property="Title" Value="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+    </Style>
+
+</ResourceDictionary>

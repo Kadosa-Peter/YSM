@@ -1,0 +1,81 @@
+﻿<controls:ExtendedWindow x:Class="Ysm.Controls.AssistanceWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:controls="clr-namespace:Ysm.Controls"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         Title="Help"
+                         Width="460"
+                         Height="600"
+                         Icon="../Icons/icon.ico"
+                         ResizeMode="NoResize"
+                         Style="{StaticResource ExtendedWindowStyle}"
+                         WindowStartupLocation="CenterScreen"
+                         mc:Ignorable="d">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ysm.Controls;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <Border x:Name="HeaderBorder"
+                Grid.Row="0"
+                Height="24"
+                Background="White"
+                BorderBrush="{DynamicResource Window_Border}"
+                BorderThickness="0,0,0,1"
+                MouseLeftButtonDown="HeaderBorder_OnMouseLeftButtonDown"
+                MouseMove="Footer_MouseMove">
+            <DockPanel LastChildFill="False">
+                <TextBlock Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Foreground="#FFAAABAC"
+                           Style="{DynamicResource TextBlockStyle}"
+                           Text="Press Space to stop/start investigation." />
+                <controls:IconButton Width="24"
+                                     Height="24"
+                                     Click="Close_OnClick"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Icons/close_enter.png"
+                                     MouseLeaveIcon="../Icons/close_leave.png" />
+            </DockPanel>
+        </Border>
+
+        <WindowsFormsHost x:Name="WebBrowserHost"
+                          Grid.Row="1"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch" />
+
+        <Border Grid.Row="2"
+                Background="{DynamicResource Window_Background}"
+                BorderBrush="{DynamicResource Window_Border}"
+                BorderThickness="0,1,0,0"
+                MouseMove="Footer_MouseMove">
+            <DockPanel LastChildFill="False">
+                <!--  TODO translate  -->
+                <Button BorderThickness="1,0,0,0"
+                        Click="Close_OnClick"
+                        Content="Cancel"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource FooterButtonStyle}" />
+                <Button BorderThickness="1,0,0,0"
+                        Click="UserGuid_Click"
+                        Content="User Guide"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource FooterButtonStyle}" />
+            </DockPanel>
+        </Border>
+    </Grid>
+</controls:ExtendedWindow>

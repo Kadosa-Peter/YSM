@@ -1,0 +1,804 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .video-container {
+            width: _width_px;
+            height: _height_px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        .volume-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+            padding: 0;
+            z-index: 999;
+        }
+
+        #volume {
+            color: yellow;
+            font-size: 30px;
+            font-weight: 400;
+            margin: 10px;
+            padding: 0;
+            display: none;
+        }
+
+        #loading-layer {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="video-container">
+        <div id="loading-layer"></div>
+        <div class="volume-container">
+            <p id="volume">50</p>
+        </div>
+        <div id="player">
+        </div>
+    </div>
+
+    <script>
+        // ReSharper disable CoercedEqualsUsing
+        // ReSharper disable UnknownCssClass
+        var player;
+        var iframe;
+
+        var blockAds = true;
+        var mute = false;
+        var isPaused = false;
+
+        var currentVolume;
+        var volume = 35;
+        var volumeNode;
+        var volumeTimer;
+
+        var state = -1;
+
+        var _ = false;
+
+        var tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+                height: "_height_",
+                width: "_width_",
+                videoId: "_videoid_",
+                playerVars: {
+                    "autoplay": 0,
+                    "controls": 1,
+                    "start": 0,
+                    "modestbranding": 1,
+                    "disablekb": 1
+                },
+                events: {
+                    "onStateChange": onPlayerStateChange,
+                    'onReady': onPlayerReady,
+                    'onError': onPlayerError
+                }
+            });
+
+        }
+
+        function onPlayerReady()
+        {
+            iframe = getIframe();
+
+            player.setPlaybackQuality("hd1080");
+
+            setPlayerLayout();
+
+            setVolume();
+
+            setCursorVisibility();
+
+            player.addEventListener("resize", repositionMarkers);
+            iframe.getElementById('player').addEventListener('wheel', wheelVolume);
+            document.addEventListener('webkitfullscreenchange', fullscreenChanged);
+
+            //setPlayerLayout();
+
+            bound.onReady();
+        }
+
+        function onPlayerError() {
+            var array = iframe.getElementsByClassName('ytp-related-on-error-overlay');
+            if (array.length > 0) {
+                array[0].style.visibility = "hidden";
+            }
+
+            bound.onError();
+        }
+
+        function onPlayerStateChange(e) {
+            // -1 – unstarted
+            // 0 – ended
+            // 1 – playing
+            // 2 – paused
+            // 3 – buffering
+            // 5 – video cued
+            if (e.data == 0) {
+                bound.onEnded();
+
+                state = 0;
+            }
+            if (e.data == 1) {
+                state = 1;
+
+                if (_ == false) {
+                    _ = true;
+
+                    bound.onPlay();
+
+                    if (blockAds == true) {
+                        removeOverlayAds();
+
+                        removeSkipableAds();
+                    }
+                }
+
+            } else if (e.data == 2) {
+                state = 2;
+            }
+        }
+
+        function fullscreenChanged() {
+            resizeMarkers();
+
+            if (document.webkitIsFullScreen) {
+                volumeNode.style.margin = "30px";
+                volumeNode.style.fontSize = "80px";
+            } else {
+                volumeNode.style.margin = "10px";
+                volumeNode.style.fontSize = "40px";
+            }
+        }
+
+        function removeOverlayAds() {
+            var adContainer = iframe.getElementsByClassName("ad-container");
+
+            if (adContainer.length > 0) {
+                adContainer[0].style.display = "none";
+            }
+
+            var adProgress = iframe.getElementsByClassName("ytp-ad-progress");
+            if (adProgress.length > 0) {
+                for (var i = 0; i < adProgress.length; i++) {
+                    adProgress[i].style.display = "none";
+                }
+            }
+        }
+
+        function removeSkipableAds() {
+            window.setInterval(function () {
+                var list = iframe.getElementsByClassName("ad-showing");
+
+                if (list.length > 0) {
+                    var stream_array = iframe.getElementsByClassName("video-stream");
+
+                    if (stream_array.length > 0) {
+                        var video_stream = stream_array[0];
+                        video_stream.setAttribute("src", "");
+                    }
+                }
+            }, 50);
+        }
+
+        function setPlayerLayout() {
+            var array;
+            var b0 = true;
+            var b1 = true;
+            var b2 = true;
+            var b3 = true;
+            var b4 = true;
+            var b5 = true;
+            var b6 = true;
+            var b7 = true;
+
+            var layer = iframe.getElementsByClassName("ytp-chrome-top")[0];
+            layer.style.display = "none";
+
+            var loadingLayer = document.getElementById("loading-layer");
+            loadingLayer.style.display = "none";
+
+            window.setInterval(function ()
+            {
+                if (b0) {
+                    array = iframe.getElementsByClassName("ytp-progress-bar");
+                    if (array.length > 0) {
+                        b0 = false;
+                        var a0 = iframe.getElementsByClassName("ytp-progress-bar-container")[0];
+                        var a1 = iframe.getElementsByClassName("ytp-progress-bar-padding")[0];
+                        var a2 = iframe.getElementsByClassName("ytp-progress-bar")[0];
+                        var a3 = iframe.getElementsByClassName("ytp-progress-list")[0];
+
+                        a0.addEventListener("click", createMarker);
+                        a0.addEventListener("mousedown", preventSkipTo);
+                        a1.addEventListener("mousedown", preventSkipTo);
+                        a2.addEventListener("mousedown", preventSkipTo);
+                        a3.addEventListener("mousedown", preventSkipTo);
+                    }
+                }
+
+                if (b1) {
+                    array = iframe.getElementsByClassName('ytp-title');
+                    if (array.length > 0) {
+                        b1 = false;
+                        array[0].style.visibility = "hidden";
+                    }
+                }
+
+                if (b2) {
+                    array = iframe.getElementsByClassName('ytp-chrome-top-buttons');
+                    if (array.length > 0) {
+                        b2 = false;
+                        array[0].style.visibility = "hidden";
+                    }
+                }
+
+                if (b3) {
+                    array = iframe.getElementsByClassName('ytp-pause-overlay ytp-scroll-min');
+                    if (array.length > 0) {
+                        b3 = false;
+                        array[0].style.visibility = "hidden";
+                    }
+                }
+
+                if (b4) {
+                    array = iframe.getElementsByClassName('ytp-gradient-top');
+                    if (array.length > 0) {
+                        b4 = false;
+                        array[0].style.visibility = "hidden";
+                    }
+                }
+
+                if (state == 1) {
+                    if (b5 == true) {
+                        array = iframe.getElementsByClassName('annotation');
+                        if (array.length > 0) {
+                            b5 = false;
+                            array[0].style.visibility = "hidden";
+                        }
+                    }
+
+                    if (b6 == true) {
+                        array = iframe.getElementsByClassName('html5-endscreen');
+                        if (array.length > 0) {
+                            b6 = false;
+                            array[0].style.visibility = "hidden";
+                        }
+                    }
+
+                    if (b7 == true) {
+                        array = iframe.getElementsByClassName('ytp-ce-element');
+                        if (array.length > 0) {
+                            b7 = false;
+                            for (var i = 0; i < array.length; i++) {
+                                array[i].style.visibility = "hidden";
+                            }
+                        }
+                    }
+                }
+            }, 50);
+        }
+
+        function pause() {
+            player.pauseVideo();
+        }
+
+        function play() {
+            player.playVideo();
+        }
+
+        function seekTo(seconds) {
+            player.seekTo(seconds, true);
+        }
+
+        function getCurrentTime() {
+            return player.getCurrentTime();
+        }
+
+        function getEndTime(mute) {
+            if (mute == true) {
+                // YSM kilépésnél el kell némitanom mer van kb 1s késleltetés a endTime mentés miatt
+                player.mute();
+            }
+
+            var currentTime = player.getCurrentTime();
+            var duration = player.getDuration();
+
+            var delta = duration - currentTime;
+
+            if (delta >= 15) {
+                return currentTime;
+            } else {
+                return 0;
+            }
+
+        }
+
+        function getDuration() {
+            return player.getDuration();
+        }
+
+        function setLarge() {
+            var list = document.getElementsByClassName("video-container");
+            list[0].style.width = "1280px";
+            list[0].style.height = "720px";
+
+            player.setSize(1280, 720);
+        }
+
+        function setMiddle() {
+            var list = document.getElementsByClassName("video-container");
+            list[0].style.width = "854px";
+            list[0].style.height = "480px";
+
+            player.setSize(854, 480);
+        }
+
+        function setSmall() {
+            var list = document.getElementsByClassName("video-container");
+            list[0].style.width = "640px";
+            list[0].style.height = "360px";
+
+            player.setSize(640, 360);
+        }
+
+        function toggleMute() {
+            if (player.isMuted() == true) {
+                player.unMute();
+                bound.onMute(false);
+            } else {
+                player.mute();
+                bound.onMute(true);
+            }
+
+        }
+
+        function togglePlayPause() {
+            if (isPaused == true) {
+                player.playVideo();
+                isPaused = false;
+            } else {
+                player.pauseVideo();
+                isPaused = true;
+            }
+        }
+
+        function setVolume() {
+            player.setVolume(volume);
+
+            setInterval(function () {
+                if (state == 1) {
+                    bound.onVolume(player.getVolume().toString());
+                }
+
+            }, 1000);
+
+            if (mute == true) {
+                player.mute();
+            }
+
+            volumeLayer();
+        }
+
+        function volumeLayer() {
+            var volumeDiv = document.createElement("div");
+            volumeDiv.style.position = "absolute";
+
+            volumeNode = document.createElement("p");
+            volumeNode.style.color = "white";
+            volumeNode.style.textShadow = "0 0 5px #000000";
+            volumeNode.style.fontSize = "40px";
+            volumeNode.style.fontWeight = "400";
+            volumeNode.style.margin = "10px";
+            volumeNode.style.padding = "0";
+            volumeNode.style.display = "none";
+            volumeDiv.appendChild(volumeNode);
+
+            var videoContainer = iframe.getElementsByClassName('html5-video-container')[0];
+            videoContainer.appendChild(volumeDiv);
+        }
+
+        function increaseVolume() {
+            volume = player.getVolume();
+
+            volume += 5;
+
+            if (volume > 100)
+                volume = 100;
+
+            bound.onVolume(volume.toString());
+
+            volumeNode.innerHTML = volume;
+            volumeNode.style.display = "block";
+
+            player.setVolume(volume);
+
+            if (volumeTimer) {
+                clearTimeout(volumeTimer);
+                volumeTimer = 0;
+            }
+
+            volumeTimer = setTimeout(function () {
+
+                volumeNode.style.display = "none";
+            }, 2000);
+        }
+
+        function decreaseVolume() {
+            volume = player.getVolume();
+
+            volume -= 5;
+
+            if (volume < 0)
+                volume = 0;
+
+            bound.onVolume(volume.toString());
+
+            volumeNode.innerHTML = volume;
+            volumeNode.style.display = "block";
+
+            player.setVolume(volume);
+
+            if (volumeTimer) {
+                clearTimeout(volumeTimer);
+                volumeTimer = 0;
+            }
+
+            volumeTimer = setTimeout(function () {
+                volumeNode.style.display = "none";
+            }, 2000);
+        }
+
+        function wheelVolume(e) {
+            if (e.wheelDelta > 0) {
+                increaseVolume();
+            } else {
+                decreaseVolume();
+            }
+        }
+
+        function setCursorVisibility() {
+            var cursorTimer;
+            var fadeInBuffer = false;
+            var videoContainer = document.getElementsByClassName('video-container')[0];
+
+            iframe.getElementById('player').addEventListener("mousemove", function () {
+                if (!fadeInBuffer) {
+                    if (cursorTimer) {
+
+                        clearTimeout(cursorTimer);
+                        cursorTimer = 0;
+                    }
+
+                    iframe.body.style.cursor = 'default';
+                    videoContainer.style.cursor = 'default';
+                } else {
+
+                    iframe.body.cursor = 'default';
+                    fadeInBuffer = false;
+                }
+
+                cursorTimer = setTimeout(function () {
+                    iframe.body.style.cursor = 'none';
+                    videoContainer.style.cursor = 'none';
+                    fadeInBuffer = true;
+                }, 3000);
+            });
+        }
+
+        function preventSkipTo(e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+
+            return true;
+        }
+
+        function createMarker(e) {
+            if (e.ctrlKey) {
+                var progressBar = iframe.getElementsByClassName("ytp-progress-bar-container")[0];
+                var width = progressBar.offsetWidth;
+                var rect = e.currentTarget.getBoundingClientRect();
+                var offsetX = e.clientX - rect.left;
+                var delta = offsetX / (width / 100);
+                var duration = player.getDuration();
+                var sec = (duration / 100) * delta;
+                bound.onMarker("create", sec);
+            }
+        }
+
+        function addMarker(sec, id, comment) {
+
+            var progrssBar = iframe.getElementsByClassName('ytp-progress-bar-container')[0];
+
+            var duration = player.getDuration();
+            var delta = sec / (duration / 100);
+            var left = (progrssBar.offsetWidth / 100) * delta;
+            left = left - 5;
+
+            var classId = 'ysm-mkr-' + id;
+
+            var mkr = document.createElement("div");
+            mkr.classList.add('ysm-mkr', classId);
+            mkr.style.position = "absolute";
+            mkr.style.marginLeft = left + 'px';
+            mkr.style.marginTop = "-2.5px";
+            mkr.style.padding = "0";
+            mkr.style.width = "10px";
+            mkr.style.height = "10px";
+            mkr.style.background = "greenyellow";
+            mkr.style.borderRadius = "50%";
+            mkr.style.zIndex = "999";
+
+            if (isEmpty(comment)) {
+                mkr.style.opacity = "0.8";
+            }
+
+            mkr.setAttribute('data-sec', sec);
+            mkr.setAttribute('data-id', id);
+            mkr.setAttribute('data-comment', comment);
+
+            mkr.addEventListener("mouseenter", function (e) {
+                var content = e.target.getAttribute('data-comment');
+
+                if (isEmpty(content) == false) {
+                    var label = document.createElement("div");
+                    label.classList.add('ysm-comment');
+                    label.style.position = "relative";
+                    label.style.width = "100%";
+                    label.style.MarginLeft = "10%";
+                    label.style.background = "black";
+                    label.style.zIndex = "999";
+
+                    var text = document.createElement("p");
+                    text.style.color = "white";
+                    text.style.fontFamily = "Segoe UI";
+                    text.style.fontWeight = "600";
+                    text.style.display = "inline-block";
+                    text.innerHTML = content;
+
+                    if (document.webkitIsFullScreen) {
+                        label.style.opacity = "1";
+                        text.style.margin = "12px";
+                        text.style.fontSize = "28px";
+                    } else {
+                        label.style.opacity = "0.8";
+                        text.style.margin = "6px";
+                        text.style.fontSize = "14px";
+                    }
+
+                    label.appendChild(text);
+
+                    var videoPlayerDiv = iframe.getElementsByClassName('html5-video-player')[0];
+                    videoPlayerDiv.appendChild(label);
+                }
+            });
+
+            mkr.addEventListener("mouseleave", function () {
+                var videoPlayerDiv = iframe.getElementsByClassName('html5-video-player')[0];
+
+                var elements = videoPlayerDiv.getElementsByClassName("ysm-comment");
+
+                if (elements.length > 0) {
+                    videoPlayerDiv.removeChild(elements[0]);
+                }
+            });
+
+            mkr.addEventListener("click", function (e) {
+                var idAttr;
+                var commentAttr;
+                var secAttr;
+
+                if (e.ctrlKey) {
+                    idAttr = e.target.getAttribute('data-id');
+                    bound.onMarker("delete", idAttr.toString());
+
+                    var videoPlayerDiv = iframe.getElementsByClassName('html5-video-player')[0];
+                    var elements = videoPlayerDiv.getElementsByClassName("ysm-comment");
+                    if (elements.length > 0)
+                        videoPlayerDiv.removeChild(elements[0]);
+
+                    e.stopPropagation();
+
+                } else if (e.shiftKey) {
+
+                    idAttr = e.target.getAttribute('data-id');
+                    commentAttr = e.target.getAttribute('data-comment');
+                    secAttr = e.target.getAttribute('data-sec').toString();
+                    bound.onMarker("update", idAttr, commentAttr, secAttr);
+                } else {
+                    secAttr = e.target.getAttribute('data-sec').toString();
+                    bound.onMarker("seekTo", secAttr);
+                }
+            });
+
+            progrssBar.appendChild(mkr);
+        }
+
+        function removeMarker(id) {
+            var classId = 'ysm-mkr-' + id;
+
+            var progrssBar = iframe.getElementsByClassName('ytp-progress-bar-container')[0];
+
+            var elements = progrssBar.getElementsByClassName(classId);
+
+            if (elements.length > 0) {
+                progrssBar.removeChild(elements[0]);
+            }
+        }
+
+        function removeMarkers() {
+            var progrssBar = iframe.getElementsByClassName('ytp-progress-bar-container')[0];
+
+            var elements = progrssBar.getElementsByClassName('ysm-mkr');
+
+            for (var index = 0; index < elements.length; ++index) {
+                progrssBar.removeChild(elements[index]);
+            }
+        }
+
+        function updateMarker(id, comment) {
+            var progrssBar = iframe.getElementsByClassName('ytp-progress-bar-container')[0];
+            var className = 'ysm-mkr-' + id;
+            var elements = progrssBar.getElementsByClassName(className);
+            if (elements.length > 0) {
+                elements[0].setAttribute('data-comment', comment);
+            }
+            var labels = iframe.getElementsByClassName('ysm-comment');
+            if (labels.length > 0) {
+                labels[0].firstChild.innerHTML = comment;
+            }
+        }
+
+        function repositionMarkers() {
+            var progrssBar = iframe.getElementsByClassName('ytp-progress-bar-container')[0];
+
+            var elements = progrssBar.getElementsByClassName('ysm-mkr');
+
+            if (elements.length > 0) {
+                var index;
+                for (index = 0; index < elements.length; ++index) {
+                    var element = elements[index];
+                    var sec = element.getAttribute('data-sec');
+                    var duration = player.getDuration();
+                    var delta = sec / (duration / 100);
+                    var left = (progrssBar.offsetWidth / 100) * delta;
+
+                    element.style.marginLeft = left + 'px';
+                }
+            }
+        }
+
+        function resizeMarkers() {
+            var progrssBar = iframe.getElementsByClassName('ytp-progress-bar-container')[0];
+            var elements = progrssBar.getElementsByClassName('ysm-mkr');
+
+            if (elements.length > 0) {
+                var index;
+                for (index = 0; index < elements.length; ++index) {
+                    var element = elements[index];
+
+                    var style = element.currentStyle || window.getComputedStyle(element);
+                    var left = style.marginLeft;
+
+
+                    if (document.webkitIsFullScreen) {
+                        left = left - 10;
+
+                        element.style.marginTop = "-5px";
+                        element.style.marginLeft = left + "px";
+                        element.style.width = "20px";
+                        element.style.height = "20px";
+                    } else {
+                        left = left + 10;
+
+                        element.style.marginTop = "-2.5px";
+                        element.style.marginLeft = left + "px";
+                        element.style.width = "10px";
+                        element.style.height = "10px";
+                    }
+                }
+            }
+        }
+
+        function showContinueLayer() {
+            var label = document.createElement("div");
+            label.style.position = "relative";
+            label.style.display = "flex";
+            label.style.justifyContent = "space-between";
+            label.style.width = "100%";
+            label.style.MarginLeft = "10%";
+            label.style.background = "black";
+            label.style.zIndex = "999";
+            label.style.cursor = "pointer";
+
+            var text = document.createElement("p");
+            text.style.color = "white";
+            text.style.fontFamily = "Segoe UI";
+            text.style.fontWeight = "600";
+            text.innerHTML = "Click here if you want to restart the playback where left off.";
+
+            var close = document.createElement("p");
+            close.style.color = "white";
+            close.style.fontFamily = "Arial";
+            close.style.fontWeight = "800";
+            close.innerHTML = "X";
+
+            if (document.webkitIsFullScreen) {
+                label.style.opacity = "1";
+                text.style.margin = "12px";
+                text.style.marginLeft = "16px";
+                text.style.fontSize = "28px";
+                close.style.margin = "12px";
+                close.style.marginRight = "16px";
+                close.style.fontSize = "28px";
+            } else {
+                label.style.opacity = "0.8";
+                text.style.margin = "6px";
+                text.style.marginLeft = "10px";
+                text.style.fontSize = "14px";
+                close.style.margin = "6px";
+                close.style.marginRight = "10px";
+                close.style.fontSize = "14px";
+            }
+
+            label.appendChild(text);
+            label.appendChild(close);
+
+            var videoPlayerDiv = iframe.getElementsByClassName('html5-video-player')[0];
+            videoPlayerDiv.appendChild(label);
+
+            close.addEventListener("click", function () {
+                videoPlayerDiv.removeChild(label);
+            });
+
+            label.addEventListener("click", function () {
+                videoPlayerDiv.removeChild(label);
+                bound.onContinue();
+            });
+
+            setTimeout(function () {
+                videoPlayerDiv.removeChild(label);
+            }, 10000);
+        }
+
+        function isEmpty(str) {
+            return (!str || 0 === str.length);
+        }
+
+        function getIframe() {
+            var iframe = document.getElementById("player");
+            return iframe.contentDocument || iframe.contentWindow.document;
+        }
+
+        function log(obj) {
+            bound.onLog(obj.toString());
+        }
+        // ReSharper restore UnknownCssClass
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E2B686E-EA60-4FE3-B045-516274B9F5FE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Ysm</RootNamespace>
+    <AssemblyName>Ysm</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="ChromiumFX">
+      <HintPath>..\..\..\Libs\bin\cef\ChromiumFX.dll</HintPath>
+    </Reference>
+    <Reference Include="ChromiumWebBrowser">
+      <HintPath>..\..\..\Libs\bin\cef\ChromiumWebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\packages\AvalonEdit.5.0.4\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq, Version=3.0.0.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.3.0.0\lib\net451\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveProperty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=910d1732782c71cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveProperty.4.2.1\lib\net46\ReactiveProperty.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveProperty.NET46, Version=4.2.6650.24705, Culture=neutral, PublicKeyToken=3d1fed915120cbde, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveProperty.4.2.1\lib\net46\ReactiveProperty.NET46.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Reactive.Core, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net46\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net46\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net46\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="YoutubeExplode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\bin\YoutubeExplode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Actions\DownloadAllVideos.cs" />
+    <Compile Include="Actions\OpenVideo.cs" />
+    <Compile Include="Actions\OpenVideoInBrowser.cs" />
+    <Compile Include="Actions\OpenVideosPageInBrowser.cs" />
+    <Compile Include="Actions\OpenVideoTab.cs" />
+    <Compile Include="Actions\SubscriptionService.cs" />
+    <Compile Include="Assets\Behaviors\ComboBoxDropHelperBehvior.cs" />
+    <Compile Include="Assets\Behaviors\VideoDragBehvior.cs" />
+    <Compile Include="Assets\Behaviors\VideoDropBehvior.cs" />
+    <Compile Include="Assets\Browser\BoundObject.cs" />
+    <Compile Include="Assets\ClosedTabs.cs" />
+    <Compile Include="Assets\Mark.cs" />
+    <Compile Include="Assets\Menu\MarkerMenu.cs" />
+    <Compile Include="Assets\Menu\Favorites\FavoriesNodeMenu.cs" />
+    <Compile Include="Assets\Menu\WatchLater\WatchLaterNodeMenu.cs" />
+    <Compile Include="Assets\PlayerHistory.cs" />
+    <Compile Include="Assets\Browser\BrowserSize.cs" />
+    <Compile Include="Assets\Browser\HtmlSource.cs" />
+    <Compile Include="Assets\Browser\TaskStringVisitor.cs" />
+    <Compile Include="Assets\Browser\WebViewSize.cs" />
+    <Compile Include="Assets\ChannelAvailability.cs" />
+    <Compile Include="Assets\Downloader.cs" />
+    <Compile Include="Assets\MapObj.cs" />
+    <Compile Include="Assets\Menu\PlayerMenu.cs" />
+    <Compile Include="Assets\Menu\Playlists\PlaylistVideoMenu.cs" />
+    <Compile Include="Assets\Menu\Playlists\PlaylistNodeMenu.cs" />
+    <Compile Include="Assets\Messages.cs" />
+    <Compile Include="Assets\PlayEngine.cs" />
+    <Compile Include="Assets\SearchEventArgs.cs" />
+    <Compile Include="Assets\SubscriptionDisplayMode.cs" />
+    <Compile Include="Assets\VideoList.cs" />
+    <Compile Include="Assets\CommandsHelper.cs" />
+    <Compile Include="Assets\VideoMouseClickHelper.cs" />
+    <Compile Include="Assets\VideoDisplayMode.cs" />
+    <Compile Include="Models\Notes\Node.cs" />
+    <Compile Include="Models\Notes\NodeTemplateSelector.cs" />
+    <Compile Include="Models\Notes\NodeType.cs" />
+    <Compile Include="Models\Iteration\IterationNode.cs" />
+    <Compile Include="Models\Iteration\NodeTemplateSelector.cs" />
+    <Compile Include="Models\Iteration\NodeType.cs" />
+    <Compile Include="Models\PlaylistItem.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Views\MainViews\MarkerView.xaml.cs">
+      <DependentUpon>MarkerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SidebarView.xaml.cs">
+      <DependentUpon>SidebarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Player\PlayerControlView.xaml.cs">
+      <DependentUpon>PlayerControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Player\PlayerTabView.xaml.cs">
+      <DependentUpon>PlayerTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Player\PlayerView.xaml.cs">
+      <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\ChannelView.xaml.cs">
+      <DependentUpon>ChannelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\FavoritesView.xaml.cs">
+      <DependentUpon>FavoritesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FooterView.xaml.cs">
+      <DependentUpon>FooterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\PlaylistView.xaml.cs">
+      <DependentUpon>PlaylistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CommentWindow.xaml.cs">
+      <DependentUpon>CommentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MarkerUpdate.xaml.cs">
+      <DependentUpon>MarkerUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NoteWindow.xaml.cs">
+      <DependentUpon>NoteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WatchedUnwatched\IterationWindow.xaml.cs">
+      <DependentUpon>IterationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PlaylistWindow.xaml.cs">
+      <DependentUpon>PlaylistWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\WatchLaterView.xaml.cs">
+      <DependentUpon>WatchLaterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HeaderView.xaml.cs">
+      <DependentUpon>HeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViewHost.xaml.cs">
+      <DependentUpon>MainViewHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolbarView.xaml.cs">
+      <DependentUpon>ToolbarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainViews\VideoView.xaml.cs">
+      <DependentUpon>VideoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DragWindow.xaml.cs">
+      <DependentUpon>DragWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FullScreenWindow.xaml.cs">
+      <DependentUpon>FullScreenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NotifyWindow.xaml.cs">
+      <DependentUpon>NotifyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SerialWindow.xaml.cs">
+      <DependentUpon>SerialWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\AppearanceSettings.xaml.cs">
+      <DependentUpon>AppearanceSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\PlayerSettings.xaml.cs">
+      <DependentUpon>PlayerSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\DownloadsSettings.xaml.cs">
+      <DependentUpon>DownloadsSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\HistorySettings.xaml.cs">
+      <DependentUpon>HistorySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\NotificationSettings.xaml.cs">
+      <DependentUpon>NotificationSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\SubscriptionSettings.xaml.cs">
+      <DependentUpon>SubscriptionSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\VideoSettings.xaml.cs">
+      <DependentUpon>VideoSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TransferWindow.xaml.cs">
+      <DependentUpon>TransferWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WatchedUnwatched\UnwatchedWindow.xaml.cs">
+      <DependentUpon>UnwatchedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VideoDragWindow.xaml.cs">
+      <DependentUpon>VideoDragWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WatchedUnwatched\WatchedWindow.xaml.cs">
+      <DependentUpon>WatchedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WelcomeWindow.xaml.cs">
+      <DependentUpon>WelcomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Actions\ActionRepository.cs" />
+    <Compile Include="Actions\DownloadVideo.cs" />
+    <Compile Include="Actions\ExportAction.cs" />
+    <Compile Include="Actions\IAction.cs" />
+    <Compile Include="Actions\ImportAction.cs" />
+    <Compile Include="Actions\Licence.cs" />
+    <Compile Include="Actions\OpenAbout.cs" />
+    <Compile Include="Actions\OpenChannelPageInBrowser.cs" />
+    <Compile Include="Actions\OpenFeedback.cs" />
+    <Compile Include="Actions\OpenSettings.cs" />
+    <Compile Include="Actions\Update.cs" />
+    <Compile Include="Actions\VideoService.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assets\Behaviors\ChannelDragBehavior.cs" />
+    <Compile Include="Assets\Behaviors\ChannelDropTarget.cs" />
+    <Compile Include="Assets\Behaviors\DotAnimationBehavior.cs" />
+    <Compile Include="Assets\Behaviors\DragMoveBehaviour.cs" />
+    <Compile Include="Assets\Caches\CacheBase.cs" />
+    <Compile Include="Assets\Caches\CacheDelegate.cs" />
+    <Compile Include="Assets\Caches\FavoritesCache.cs" />
+    <Compile Include="Assets\Caches\WatchLaterCache.cs" />
+    <Compile Include="Assets\ChannelMapper.cs" />
+    <Compile Include="Assets\Converters\ChannelImageConverter.cs" />
+    <Compile Include="Assets\Converters\StateConverter.cs" />
+    <Compile Include="Assets\DownloadTimer.cs" />
+    <Compile Include="Assets\Menu\ChannelMenu.cs" />
+    <Compile Include="Assets\Menu\Favorites\FavoritesMenu.cs" />
+    <Compile Include="Assets\Menu\HistoryMenu.cs" />
+    <Compile Include="Assets\Menu\MenuBase.cs" />
+    <Compile Include="Assets\Menu\VideoMenu.cs" />
+    <Compile Include="Assets\Menu\WatchLater\WatchLaterMenu.cs" />
+    <Compile Include="Assets\Move.cs" />
+    <Compile Include="Assets\SearchEngine.cs" />
+    <Compile Include="Assets\SearchQuery.cs" />
+    <Compile Include="Assets\Shortcut.cs" />
+    <Compile Include="Assets\Transfer\Dialogs.cs" />
+    <Compile Include="Assets\Transfer\Export.cs" />
+    <Compile Include="Assets\Transfer\Import.cs" />
+    <Compile Include="Assets\Transfer\TransferBase.cs" />
+    <Compile Include="Assets\AppSettings.cs" />
+    <Compile Include="Assets\ChromiumFx.cs" />
+    <Compile Include="Assets\CommandBindingHelper.cs" />
+    <Compile Include="Assets\Commands.cs" />
+    <Compile Include="Assets\Dialogs.cs" />
+    <Compile Include="Assets\Kernel.cs" />
+    <Compile Include="Assets\Licence.cs" />
+    <Compile Include="Assets\Settings.cs" />
+    <Compile Include="Assets\SettingsBase.cs" />
+    <Compile Include="Assets\SingleInstance.cs" />
+    <Compile Include="Assets\SubscriptionServiceWrapper.cs" />
+    <Compile Include="Assets\Thumbnail.cs" />
+    <Compile Include="Assets\VideoServiceWrapper.cs" />
+    <Compile Include="Assets\View.cs" />
+    <Compile Include="Assets\VisibleNodes.cs" />
+    <Compile Include="Assets\Trial\Trial.cs" />
+    <Compile Include="Assets\Trial\TrialEntry.cs" />
+    <Compile Include="Assets\Trial\TrialHelpers.cs" />
+    <Compile Include="Assets\Trial\TrialState.cs" />
+    <Compile Include="Assets\Trial\TrialTimer.cs" />
+    <Compile Include="Assets\Update.cs" />
+    <Compile Include="Assets\WindowSettings.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Markers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Category.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Channel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Iteration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Notify.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Playlists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Root.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Video.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainViews\MarkerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SidebarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Player\PlayerControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Player\PlayerTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Player\PlayerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainViews\ChannelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainViews\FavoritesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FooterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainViews\PlaylistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CommentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MarkerUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NoteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WatchedUnwatched\IterationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PlaylistWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainViews\WatchLaterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HeaderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainViewHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ToolbarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainViews\HistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainViews\VideoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DragWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\FullScreenWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\InfoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\NotifyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SerialWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Settings\AppearanceSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Settings\PlayerSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Settings\DownloadsSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Settings\HistorySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Settings\NotificationSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Settings\SubscriptionSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Settings\VideoSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TransferWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WatchedUnwatched\UnwatchedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\VideoDragWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WatchedUnwatched\WatchedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WelcomeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragTemplateSelector.cs" />
+    <Compile Include="Models\Node.cs" />
+    <Compile Include="Models\NodeExtensions.cs" />
+    <Compile Include="Models\NodeFactory.cs" />
+    <Compile Include="Models\NodeTemplateSelector.cs" />
+    <Compile Include="Models\NodeType.cs" />
+    <Compile Include="Models\NotifyItem.cs" />
+    <Compile Include="Models\VideoItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.hu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.hu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.hu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.hu.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ysm.Controls\Ysm.Controls.csproj">
+      <Project>{d5e6b675-92b7-48cb-b629-c7af63255364}</Project>
+      <Name>Ysm.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ysm.Core\Ysm.Core.csproj">
+      <Project>{1722e951-be29-4c85-a6b3-54dc327e0b61}</Project>
+      <Name>Ysm.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ysm.Data\Ysm.Data.csproj">
+      <Project>{7db69941-8a3d-419a-9aec-83dd33d33277}</Project>
+      <Name>Ysm.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Video\download.png" />
+    <Resource Include="Resources\Icons\Video\favorite.png" />
+    <Resource Include="Resources\Icons\Video\locate.png" />
+    <Resource Include="Resources\Icons\Video\new_tab.png" />
+    <Resource Include="Resources\Icons\Video\playlist.png" />
+    <Resource Include="Resources\Icons\Video\watchLater.png" />
+    <Resource Include="Resources\Icons\Buttons\downEnter.png" />
+    <Resource Include="Resources\Icons\Buttons\downLeave.png" />
+    <Resource Include="Resources\Icons\Buttons\upEnter.png" />
+    <Resource Include="Resources\Icons\Buttons\upLeave.png" />
+    <Resource Include="Resources\Icons\Note\note.png" />
+    <Content Include="Resources\welcome.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\icon.png" />
+    <Resource Include="Resources\default.png" />
+    <Content Include="Resources\desktopalert.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\icon.ico" />
+    <Resource Include="Resources\Icons\Assistance\close_enter.png" />
+    <Resource Include="Resources\Icons\Assistance\close_leave.png" />
+    <Resource Include="Resources\Icons\default_channel.png" />
+    <Resource Include="Resources\Icons\DialogWindow\close_enter.png" />
+    <Resource Include="Resources\Icons\DialogWindow\close_leave.png" />
+    <Resource Include="Resources\Icons\Folder\collapsed.png" />
+    <Resource Include="Resources\Icons\Folder\expanded.png" />
+    <Resource Include="Resources\Icons\NotifyWindow\notify_close_enter.png" />
+    <Resource Include="Resources\Icons\NotifyWindow\notify_close_leave.png" />
+    <Resource Include="Resources\Icons\Search\clear_enter.png" />
+    <Resource Include="Resources\Icons\Search\clear_leave.png" />
+    <Resource Include="Resources\Icons\Search\search.png" />
+    <Resource Include="Resources\Icons\Toolbar\category_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\category_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\cut_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\cut_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\edit_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\edit_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\help_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\help_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\openChannel_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\openChannel_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\open_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\open_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\paste_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\paste_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\remove_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\remove_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\settings_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\settings_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\downloadNew_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\downloadNew_inactive.png" />
+    <Resource Include="Resources\Icons\Toolbar\watched_active.png" />
+    <Resource Include="Resources\Icons\Toolbar\watched_inactive.png" />
+    <Resource Include="Resources\Icons\Window\close_enter.png" />
+    <Resource Include="Resources\Icons\Window\close_leave.png" />
+    <Resource Include="Resources\Icons\Window\maximize_enter.png" />
+    <Resource Include="Resources\Icons\Window\maximize_leave.png" />
+    <Resource Include="Resources\Icons\Window\minimize_enter.png" />
+    <Resource Include="Resources\Icons\Window\minimize_leave.png" />
+    <Resource Include="Resources\Icons\Window\restore_down_enter.png" />
+    <Resource Include="Resources\Icons\Window\restore_down_leave.png" />
+    <Resource Include="Resources\Icons\dropdown_enter.png" />
+    <Resource Include="Resources\Icons\dropdown_leave.png" />
+    <Content Include="Resources\template.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Icons\Playlists\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+  copy "$(TargetDir)$(TargetName).exe" "$(SolutionDir)..\bin"
+)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/Colors.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ScrollBarStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ScrollViewerStyle0.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ScrollViewerStyle1.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/TextBlockStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/TextBoxStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ListViewStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/FooterButtonStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/CheckBoxStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ButtonStyles.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/TootltipStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ProgressBarStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ListBoxStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ListBoxItemStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ComboBoxItemStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Styles/GridSplitter.xaml" />
+
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedWindow/ExtendedWindow.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedMenuItem/ExtendedMenuItem.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedComboBoxItem/ExtendedComboBoxItem.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/RenameBox/RenameBox.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/WatermarkTextBox/WatermarkTextBox.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedTreeItem/ExtendedTreeItem.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedTreeView/ExtendedTreeView.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/IconButton/IconButton.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/IconRepeatButton/IconRepeatButton.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/IconToggleButton/IconToggleButton.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedContextMenu/ExtendedContextMenu.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedContextMenuItem/ExtendedContextMenuItem.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedListBoxItem/ExtendedListBoxItem.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedListBox/ExtendedListBox.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/RadioButton/RadioButton.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/TextEditor/TextEditor.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedTabControl/ExtendedTabControl.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedTabItem/ExtendedTabItem.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/VideoRadioButton/VideoRadioButton.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Assistance/Assistance.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/SideRadioButton/SideRadioButton.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/Folder/Folder.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ColorCanvas/ColorCanvas.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/ExtendedSlider/ExtendedSlider.xaml" />
+        <ResourceDictionary Source="/Ysm.Controls;component/DropDown/DropDown.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

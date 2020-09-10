@@ -1,0 +1,81 @@
+﻿<UserControl
+    x:Class="Ysm.Windows.AppearanceSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:Ysm.Properties"
+    xmlns:e="clr-namespace:Ysm.Assets"
+    d:DesignHeight="500"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <StackPanel Margin="10">
+            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{x:Static p:Resources.Title_SettingsApplicationStartupPosition}" />
+            <StackPanel Margin="10,5,0,0">
+                <controls:RadioButton
+                    Content="{x:Static p:Resources.Title_SettingsDefaultPosition}"
+                    GroupName="MainWindowPosition"
+                    IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=DefaultPostion}" />
+                <controls:RadioButton
+                    Margin="0,5,0,0"
+                    Content="{x:Static p:Resources.Title_SettingsLastPosition}"
+                    GroupName="MainWindowPosition"
+                    IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=LastPosition}" />
+                <controls:RadioButton
+                    Margin="0,5,0,0"
+                    Content="{x:Static p:Resources.Title_SettingsMaximized}"
+                    GroupName="MainWindowPosition"
+                    IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=FullScreen}" />
+            </StackPanel>
+
+            <CheckBox
+                Margin="0,15,0,0"
+                Content="{x:Static p:Resources.Title_ShowSidebar}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowSidebar}" />
+
+            <CheckBox
+                Margin="0,15,0,0"
+                Content="{x:Static p:Resources.Title_AllowGlobalHotkeys}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=AllowGlobalHotkeys}" />
+
+            <CheckBox
+                x:Name="cbCloseSystemTray"
+                Margin="0,15,0,0"
+                Checked="CloseSystemTray_OnChecked"
+                Content="{x:Static p:Resources.Title_SettingsCloseSystemTray}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=CloseToSystemTray}" />
+            <CheckBox
+                x:Name="cbMinimizeSystemTray"
+                Margin="0,5,0,0"
+                Checked="MinimizeSystemTray_OnChecked"
+                Content="{x:Static p:Resources.Title_SettingsMinimizeSystemTray}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=MinimizeToSystemTray}" />
+
+            <CheckBox
+                Margin="0,15,0,0"
+                Content="{x:Static p:Resources.Title_ShowToolbarTooltip}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=ShowToolbarTooltip}" />
+
+            <CheckBox
+                Margin="0,15,0,0"
+                Click="StartOnSystemStartup_OnClick"
+                Content="{x:Static p:Resources.Settings_StartApp}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=StartOnSystemStartup}" />
+            <CheckBox
+                x:Name="cbNotification"
+                Margin="10,5,0,0"
+                Click="StartNotification_OnChecked"
+                Content="{x:Static p:Resources.Settings_StartAppNotification}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=StartNotificationArea}" />
+            <CheckBox
+                x:Name="cbTaskbar"
+                Margin="10,5,0,0"
+                Click="StartTaskbar_OnChecked"
+                Content="{x:Static p:Resources.Settings_StartAppTaskbar}"
+                IsChecked="{Binding Source={x:Static e:Settings.Default}, Path=StartTaskbar}" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>

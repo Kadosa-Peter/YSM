@@ -1,0 +1,267 @@
+﻿<UserControl x:Class="Ysm.Views.HeaderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Ysm.Properties"
+             d:DesignHeight="29"
+             d:DesignWidth="600"
+             DataContext="{Binding Source={StaticResource CommandBindingHelper}, Path=Commands}"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Padding" Value="8,2,8,0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource Header_Foreground}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{x:Null}"
+                                BorderThickness="0">
+                            <TextBlock x:Name="title"
+                                       Margin="{TemplateBinding Padding}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Segoe Ui SemiBold"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Style="{StaticResource TextBlockStyle}"
+                                       Text="{TemplateBinding Content}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="title" Property="Foreground" Value="{StaticResource MenuItem_ActiveForeground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    <controls:Assistance Document="ysm-menu">
+        <Grid x:Name="Root"
+              Background="{StaticResource Header_Background}"
+              MouseLeftButtonDown="Header_OnMouseLeftButtonDown"
+              MouseMove="Header_OnMouseMove">
+
+            <TextBlock x:Name="AppState"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="12"
+                       Foreground="#FFBBBBBB"
+                       Opacity="0.7"
+                       Style="{StaticResource TextBlockStyle}"
+                       Visibility="Collapsed" />
+
+            <DockPanel LastChildFill="False">
+
+                <!--  BUG: Muszáj hogy legyen 2 px margin, különben nem működik helyesen a Menu.  -->
+                <Menu Margin="2,0,0,0"
+                      Background="Transparent"
+                      Focusable="False">
+
+                    <controls:ExtendedMenuItem Header="Y.S.M."
+                                               Padding="8,2,10,0"
+                                               SubmenuClosed="MenuItem_OnSubmenuClosed"
+                                               SubmenuOpened="MenuItem_OnSubmenuOpened">
+                        <controls:ExtendedMenuItem x:Name="LoginMenuButton"
+                                                   Command="{Binding LoginCommand}"
+                                                   Header="{x:Static p:Resources.Button_Login}" />
+                        <controls:ExtendedMenuItem x:Name="LogoutMenuButton"
+                                                   Command="{Binding LogoutCommand}"
+                                                   Header="{x:Static p:Resources.Button_Logout}" />
+                        <controls:ExtendedMenuItem Command="{Binding UpdateCommand}" Header="{x:Static p:Resources.Button_Update}" />
+                        <controls:ExtendedMenuItem Command="{Binding FeedbackCommand}" Header="{x:Static p:Resources.Button_Feedback}" />
+                        <controls:ExtendedMenuItem Command="{Binding UserGuideCommand}" Header="{x:Static p:Resources.Button_UserGuide}" />
+                        <controls:ExtendedMenuItem Command="{Binding TutorialCommand}" Header="{x:Static p:Resources.Button_Tutorial}" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding ImportCommand}" Header="{x:Static p:Resources.Button_Import}" />
+                        <controls:ExtendedMenuItem Command="{Binding ExportCommand}" Header="{x:Static p:Resources.Button_Export}" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding SettingsCommand}" Header="{x:Static p:Resources.Button_Settings}" />
+                        <controls:ExtendedMenuItem Command="{Binding AboutCommand}" Header="{x:Static p:Resources.Button_About}" />
+                        <controls:ExtendedMenuItem x:Name="LicenceCommand"
+                                                   Command="{Binding LicenceCommand}"
+                                                   Header="{x:Static p:Resources.Button_Licence}" />
+                        <controls:ExtendedMenuItem Command="{Binding CloseCommand}" Header="{x:Static p:Resources.Button_Close}" />
+                    </controls:ExtendedMenuItem>
+
+                    <controls:ExtendedMenuItem Header="{x:Static p:Resources.Button_Edit}"
+                                               Padding="10,2,10,0"
+                                               SubmenuClosed="MenuItem_OnSubmenuClosed"
+                                               SubmenuOpened="MenuItem_OnSubmenuOpened">
+
+                        <controls:ExtendedMenuItem x:Name="btnCreateCategory"
+                                                   Command="{Binding CreateCommand}"
+                                                   Header="{x:Static p:Resources.Button_CreateCategory}"
+                                                   Hotkey="F3" />
+                        <controls:ExtendedMenuItem x:Name="btnCreatePlaylist"
+                                                   Command="{Binding NewPlaylistCommand}"
+                                                   Header="{x:Static p:Resources.Button_NewPlaylist}"
+                                                   Hotkey="F3" />
+                        <controls:ExtendedMenuItem Command="{Binding RemoveCommand}"
+                                                   Header="{x:Static p:Resources.Button_Remove}"
+                                                   Hotkey="Del." />
+                        <controls:ExtendedMenuItem Command="{Binding RenameCommand}"
+                                                   Header="{x:Static p:Resources.Button_Rename}"
+                                                   Hotkey="F2" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding CutCommand}"
+                                                   Header="{x:Static p:Resources.Button_Cut}"
+                                                   Hotkey="CTRL+X" />
+                        <controls:ExtendedMenuItem Command="{Binding PasteCommand}"
+                                                   Header="{x:Static p:Resources.Button_Paste}"
+                                                   Hotkey="CTRL+V" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding OpenChannelPageInBrowserCCommand}" Header="{x:Static p:Resources.Button_OpenChannelPage}" />
+                        <controls:ExtendedMenuItem Command="{Binding OpenVideosPageInBrowserCCommand}" Header="{x:Static p:Resources.Button_OpenVideosPage}" />
+
+                    </controls:ExtendedMenuItem>
+
+                    <controls:ExtendedMenuItem Header="{x:Static p:Resources.Button_VideosChannels}"
+                                               Padding="10,2,10,0"
+                                               SubmenuClosed="MenuItem_OnSubmenuClosed"
+                                               SubmenuOpened="MenuItem_OnSubmenuOpened">
+                        <controls:ExtendedMenuItem Command="{Binding DownloadNewSubscriptionsCommand}"
+                                                   Header="{x:Static p:Resources.Button_DownloadNewSubscriptions}"
+                                                   Hotkey="F6" />
+                        <controls:ExtendedMenuItem Command="{Binding DownloadNewVideosCommand}"
+                                                   Header="{x:Static p:Resources.Button_DownloadNewVideos}"
+                                                   Hotkey="F5" />
+                        <controls:ExtendedMenuItem Command="{Binding DownloadAllVideosCommand}" Header="{x:Static p:Resources.Button_DownloadAllVideos}" />
+
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding MarkAsWatchedCommand}" Header="{x:Static p:Resources.Button_MarkWatched}" />
+                        <controls:ExtendedMenuItem Command="{Binding MarkAsUnwatchedCommand}" Header="{x:Static p:Resources.Button_MarkUnwatched}" />
+                        <controls:ExtendedMenuItem Command="{Binding IterationsCommand}" Header="{x:Static p:Resources.Button_Iterations}" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding ShowAllVideosCommand}"
+                                                   Header="{x:Static p:Resources.Button_AllVideos}"
+                                                   Hotkey="F8" />
+                        <controls:ExtendedMenuItem Command="{Binding ShowUnwatchedVideosCommand}"
+                                                   Header="{x:Static p:Resources.Button_UnwatchedVideos}"
+                                                   Hotkey="F8" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding ShowAllSubscriptionsCommand}"
+                                                   Header="{x:Static p:Resources.Button_ShowAllSubscriptions}"
+                                                   Hotkey="F9" />
+                        <controls:ExtendedMenuItem Command="{Binding ShowSubscriptionsWithVideoCommand}"
+                                                   Header="{x:Static p:Resources.Button_ShowSubscriptionsWithVideo}"
+                                                   Hotkey="F9" />
+
+
+                    </controls:ExtendedMenuItem>
+
+
+                    <controls:ExtendedMenuItem Header="{x:Static p:Resources.Button_View}"
+                                               Padding="10,2,10,0"
+                                               SubmenuClosed="MenuItem_OnSubmenuClosed"
+                                               SubmenuOpened="MenuItem_OnSubmenuOpened">
+
+                        <controls:ExtendedMenuItem Command="{Binding SubscriptionViewCommand}"
+                                                   Header="{x:Static p:Resources.Button_Subscriptions}"
+                                                   Hotkey="CTRL+1" />
+                        <controls:ExtendedMenuItem Command="{Binding FavoritesViewCommand}"
+                                                   Header="{x:Static p:Resources.Button_Favorites}"
+                                                   Hotkey="CTRL+2" />
+                        <controls:ExtendedMenuItem Command="{Binding WatchLateViewCommand}"
+                                                   Header="{x:Static p:Resources.Button_WatchLater}"
+                                                   Hotkey="CTRL+3" />
+                        <controls:ExtendedMenuItem Command="{Binding HistoryViewCommand}"
+                                                   Header="{x:Static p:Resources.Button_History}"
+                                                   Hotkey="CTRL+4" />
+                        <controls:ExtendedMenuItem Command="{Binding PlaylistViewCommand}"
+                                                   Header="{x:Static p:Resources.Button_Playlists}"
+                                                   Hotkey="CTRL+5" />
+                        <controls:ExtendedMenuItem Command="{Binding BookmarksViewCommand}"
+                                                   Header="{x:Static p:Resources.Button_Markers}"
+                                                   Hotkey="CTRL+6" />
+
+                    </controls:ExtendedMenuItem>
+
+                    <controls:ExtendedMenuItem Header="{x:Static p:Resources.Button_Player}"
+                                               Padding="10,2,10,0"
+                                               SubmenuClosed="MenuItem_OnSubmenuClosed"
+                                               SubmenuOpened="MenuItem_OnSubmenuOpened">
+
+                        <controls:ExtendedMenuItem Command="{Binding PlayerRefreshCommand}" Header="{x:Static p:Resources.Button_PlayerReload}" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerPreviousCommand}" Header="{x:Static p:Resources.Button_PlayerPrevious}" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerNextCommand}" Header="{x:Static p:Resources.Button_PlayerNext}" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerCloseCommand}" Header="{x:Static p:Resources.Button_ClosePlayer}" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerCloseAllCommand}" Header="{x:Static p:Resources.Button_CloseAllPlayers}" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerReopenClosedTabCommand}" Header="{x:Static p:Resources.Button_ReopenClosedTab}" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <!--<controls:ExtendedMenuItem Command="{Binding PlayerContinueCommand}" Header="{x:Static p:Resources.Button_Continue}" />-->
+                        <controls:ExtendedMenuItem Command="{Binding PlayerDownloadVideoCommand}" Header="{x:Static p:Resources.Button_Download}" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerLocateCommand}" Header="{x:Static p:Resources.Button_Locate}" />
+                        <controls:ExtendedMenuItem IsSeparator="True" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerCopyUrlCommand}" Header="{x:Static p:Resources.Button_CopyUrl}" />
+                        <controls:ExtendedMenuItem Command="{Binding PlayerCopyChannelUrlCommand}" Header="{x:Static p:Resources.Button_CopyChannelUrl}" />
+
+                    </controls:ExtendedMenuItem>
+
+                </Menu>
+
+                <!--  Window Controls  -->
+                <controls:IconButton Width="24"
+                                     Height="28"
+                                     Click="Close_OnClick"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/close_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/close_leave.png"
+                                     Padding="0,4,0,0" />
+                <controls:IconButton Width="24"
+                                     Height="28"
+                                     Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/maximize_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/maximize_leave.png"
+                                     Padding="2,4,0,0"
+                                     Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:ExtendedWindow}}, Path=ShowMaxButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <controls:IconButton Width="24"
+                                     Height="28"
+                                     Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/restore_down_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/restore_down_leave.png"
+                                     Padding="0,2,0,0"
+                                     Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:ExtendedWindow}}, Path=ShowRestoreButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <controls:IconButton Width="24"
+                                     Height="28"
+                                     Click="Minimize_OnClick"
+                                     DockPanel.Dock="Right"
+                                     MouseEnterIcon="../Resources/Icons/Window/minimize_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/Window/minimize_leave.png"
+                                     Padding="0,10,0,0" />
+
+
+                <Button x:Name="UserButton"
+                        Margin="0,0,10,0"
+                        Click="UserButton_Click"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource ButtonStyle}" />
+                <Button x:Name="LoginButton"
+                        Margin="0,0,10,0"
+                        Background="#FFEC1010"
+                        Click="LoginButton_Click"
+                        Content="{x:Static p:Resources.Button_Login}"
+                        DockPanel.Dock="Right"
+                        FontSize="13"
+                        Foreground="White"
+                        Style="{StaticResource ButtonStyle}" />
+
+
+            </DockPanel>
+
+        </Grid>
+    </controls:Assistance>
+</UserControl>

@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Ysm.Views.ToolbarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:e="clr-namespace:Ysm.Assets"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Ysm.Properties"
+             d:DesignHeight="26"
+             d:DesignWidth="400"
+             DataContext="{Binding Source={StaticResource CommandBindingHelper}, Path=Commands}"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style x:Key="ToolbarButtonStyle" TargetType="{x:Type controls:IconButton}">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Width" Value="26" />
+            <Setter Property="ShowTooltip" Value="{Binding Source={x:Static e:Settings.Default}, Path=ShowToolbarTooltip}" />
+        </Style>
+    </UserControl.Resources>
+
+    <controls:Assistance Document="ysm-toolbar">
+        <Border Background="{StaticResource Toolbar_Background}"
+                BorderBrush="{StaticResource Toolbar_Border}"
+                BorderThickness="0,1,0,0">
+            <DockPanel Margin="2,0,0,0" LastChildFill="False">
+                <controls:IconButton x:Name="MarkWatchedButton"
+                                     Command="{Binding MarkAllWatchedCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/watched_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/watched_inactive.png"
+                                     Padding="0,0,-4,0"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_MarkAllWatched}" />
+
+                <controls:IconButton Command="{Binding DownloadNewVideosCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/downloadNew_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/downloadNew_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_DownloadNewVideos}" />
+                <Rectangle Width="1"
+                           Height="26"
+                           Margin="2"
+                           Fill="#40434F" />
+                <controls:IconButton x:Name="CreateButton"
+                                     Command="{Binding CreateCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/category_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/category_inactive.png"
+                                     Padding="-2,0,0,0"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_NewCategory}" />
+                <controls:IconButton x:Name="RenameButton"
+                                     Command="{Binding RenameCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/edit_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/edit_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_Rename}" />
+                <controls:IconButton x:Name="RemoveButton"
+                                     Command="{Binding RemoveCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/remove_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/remove_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_Remove}" />
+                <Rectangle Width="1"
+                           Height="26"
+                           Margin="2"
+                           Fill="#40434F" />
+                <controls:IconButton Command="{Binding CutCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/cut_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/cut_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_Cut}" />
+                <controls:IconButton Command="{Binding PasteCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/paste_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/paste_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_Paste}" />
+                <Rectangle Width="1"
+                           Height="26"
+                           Margin="2"
+                           Fill="#40434F" />
+                <controls:IconButton x:Name="OpenVideoInBrowserButton"
+                                     Command="{Binding OpenVideoInBrowserPCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/open_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/open_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}" />
+                <controls:IconButton x:Name="OpenChannelInBrowserButton"
+                                     Command="{Binding OpenChannelPageInBrowserPCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/openChannel_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/openChannel_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}" />
+
+
+                <Rectangle Width="1"
+                           Height="26"
+                           Margin="2"
+                           Fill="#40434F" />
+                <controls:IconButton Command="{Binding SettingsCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/settings_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/settings_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_Settings}" />
+                <controls:IconButton Command="{Binding HelpCommand}"
+                                     MouseEnterIcon="../Resources/Icons/Toolbar/help_active.png"
+                                     MouseLeaveIcon="../Resources/Icons/Toolbar/help_inactive.png"
+                                     Style="{StaticResource ToolbarButtonStyle}"
+                                     ToolTip="{x:Static p:Resources.Tooltip_OpenAssitance}" />
+            </DockPanel>
+        </Border>
+    </controls:Assistance>
+</UserControl>

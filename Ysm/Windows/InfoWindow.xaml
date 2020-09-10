@@ -1,0 +1,77 @@
+﻿<controls:ExtendedWindow
+    x:Class="Ysm.Windows.InfoWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="InfoWindow"
+    Width="400"
+    MinHeight="180"
+    Icon="../Resources/icon.ico"
+    KeyDown="InfoWindow_KeyDown"
+    Loaded="InfoWindow_Loaded"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    SizeToContent="Height"
+    Style="{DynamicResource ExtendedWindowStyle}"
+    Topmost="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <!--<Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ermirage.Controls;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>-->
+
+
+    <Grid Background="{DynamicResource Window_Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            x:Name="Info1"
+            Margin="15"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="13"
+            LineHeight="21.333"
+            Style="{DynamicResource TextBlockStyle}"
+            Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis dictum est, et cursus mauris tristique non. Curabitur at rhoncus dui. " />
+
+        <RichTextBox
+            x:Name="Info2"
+            Margin="15"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            BorderThickness="0"
+            FontFamily="Segoe UI Semibold"
+            FontSize="15"
+            IsReadOnly="True"
+            Visibility="Collapsed" />
+
+        <Border
+            Grid.Row="1"
+            Margin="0"
+            Background="Transparent"
+            BorderBrush="{DynamicResource Window_Border}"
+            BorderThickness="0,1,0,0"
+            MouseLeftButtonDown="Footer_MouseLeftButtonDown">
+            <DockPanel LastChildFill="False">
+                <Button
+                    x:Name="DoneButton"
+                    MinWidth="80"
+                    BorderThickness="1,0,0,0"
+                    Click="Done_Click"
+                    Content="Done"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource FooterButtonStyle}" />
+            </DockPanel>
+        </Border>
+    </Grid>
+</controls:ExtendedWindow>
+

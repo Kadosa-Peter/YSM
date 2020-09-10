@@ -1,0 +1,101 @@
+﻿<controls:ExtendedWindow x:Class="Ysm.Downloader.MainWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:behaviors="clr-namespace:Ysm.Downloader.Assets.Behaviors"
+                         xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:p="clr-namespace:Ysm.Downloader.Properties"
+                         xmlns:views="clr-namespace:Ysm.Downloader.Views"
+                         Title="YSM Downloader"
+                         Width="800"
+                         Height="600"
+                         AllowDrop="True"
+                         Closed="MainWindow_OnClosed"
+                         Icon="Resources/downloader.ico"
+                         Loaded="MainWindow_Loaded"
+                         Style="{DynamicResource ExtendedWindowStyle}"
+                         WindowStartupLocation="CenterScreen"
+                         mc:Ignorable="d">
+
+    <i:Interaction.Behaviors>
+        <behaviors:DropBehavior />
+    </i:Interaction.Behaviors>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ysm.Controls;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="46" />
+        </Grid.RowDefinitions>
+        <controls:Assistance Document="ysm-statusbar">
+            <views:HeaderView x:Name="HeaderView" />
+        </controls:Assistance>
+
+        <controls:Assistance Grid.Row="1" Document="ysm-menu">
+            <Border Margin="15"
+                    BorderBrush="{StaticResource Window_Border}"
+                    BorderThickness="1">
+                <ScrollViewer x:Name="ViewHostScrollViewer" Style="{StaticResource ScrollViewerStyle1}">
+                    <StackPanel x:Name="DownloadViewHost" />
+                </ScrollViewer>
+            </Border>
+        </controls:Assistance>
+
+        <Border Grid.Row="2"
+                Background="Transparent"
+                BorderBrush="{StaticResource Window_Border}"
+                BorderThickness="0,1,0,0">
+            <i:Interaction.Behaviors>
+                <behaviors:DragMoveBehavior />
+            </i:Interaction.Behaviors>
+            <DockPanel LastChildFill="False">
+                <Button Height="26"
+                        Margin="0,0,15,0"
+                        Click="Close_OnClick"
+                        Content="{x:Static p:Resources.Button_Close}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource GreenButtonStyle}" />
+                <Button x:Name="AddButton"
+                        Height="26"
+                        Margin="0,0,15,0"
+                        Click="Add_OnClick"
+                        Content="{x:Static p:Resources.Button_Paste}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource GreenLoadingButtonStyle}" />
+
+                <TextBlock Margin="15,0,0,0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Cursor="Hand"
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="18"
+                           MouseLeftButtonDown="Help_OnMouseLeftButtonDown"
+                           Padding="2"
+                           Text="Help">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#FFDEDEDE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="#FFC7C7C7" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </DockPanel>
+        </Border>
+
+    </Grid>
+</controls:ExtendedWindow>
+

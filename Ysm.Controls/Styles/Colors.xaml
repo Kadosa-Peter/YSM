@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <SolidColorBrush x:Key="Window_GrayBackground" po:Freeze="True" Color="#F5F5F5" />
+    <SolidColorBrush x:Key="Window_GrayBorder" po:Freeze="True" Color="#FFE6E6E6" />
+    <SolidColorBrush x:Key="Window_GrayForeground" po:Freeze="True" Color="#FF415C68" />
+    <SolidColorBrush x:Key="Window_Background" po:Freeze="True" Color="#FFFEFEFE" />
+    <SolidColorBrush x:Key="Window_Border" po:Freeze="True" Color="#F0F0F0" />
+    <SolidColorBrush x:Key="Window_BackgroundDark" po:Freeze="True" Color="#F5F5F5" />
+    <SolidColorBrush x:Key="Window_BorderDark" po:Freeze="True" Color="#FFE6E6E6" />
+
+
+
+    <SolidColorBrush x:Key="Header_Background" po:Freeze="True" Color="#FF40434F" />
+    <SolidColorBrush x:Key="Header_Foreground" po:Freeze="True" Color="#FFDADADA" />
+
+    <SolidColorBrush x:Key="Toolbar_Background" po:Freeze="True" Color="#FF4E515F" />
+    <SolidColorBrush x:Key="Toolbar_Border" po:Freeze="True" Color="#FF3A3C46" />
+    <SolidColorBrush x:Key="Toolbar_Foreground" po:Freeze="True" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="Toolbar_ActiveForeground" po:Freeze="True" Color="#FFF3F3F3" />
+
+    <SolidColorBrush x:Key="Footer_Foreground" po:Freeze="True" Color="#FFDADADA" />
+    <SolidColorBrush x:Key="Footer_Background" po:Freeze="True" Color="#FF4E515F" />
+    <SolidColorBrush x:Key="Footer_Border" po:Freeze="True" Color="#FF3A3C46" />
+
+    <SolidColorBrush x:Key="Meunu_Background" po:Freeze="True" Color="#FFF7F7F7" />
+    <SolidColorBrush x:Key="Menu_Border" po:Freeze="True" Color="#FFE4E4E4" />
+
+    <SolidColorBrush x:Key="GreenButton_Background" po:Freeze="True" Color="#FF74C78C" />
+    <SolidColorBrush x:Key="GreenButton_BackgroundActive" po:Freeze="True" Color="#FF4EB46B" />
+    <SolidColorBrush x:Key="GreenButton_BackgroundPressed" po:Freeze="True" Color="#FF4CBF6E" />
+
+    <SolidColorBrush x:Key="List_Background" po:Freeze="True" Color="White" />
+    <SolidColorBrush x:Key="List_Border" po:Freeze="True" Color="#FFD4D4D4" />
+    <SolidColorBrush x:Key="List_Foreground" po:Freeze="True" Color="#FF7B848B" />
+    <SolidColorBrush x:Key="List_SelectedBackground" po:Freeze="True" Color="#FF759DC5" />
+    <SolidColorBrush x:Key="List_SelectedForeground" po:Freeze="True" Color="WhiteSmoke" />
+
+    <SolidColorBrush x:Key="TextSlider_Indicator" po:Freeze="True" Color="#B2CFF1" />
+    <SolidColorBrush x:Key="SideRadioButton_Indicator" po:Freeze="True" Color="#FF759DC5" />
+    <SolidColorBrush x:Key="RadioButton_Indicator" po:Freeze="True" Color="#59C758" />
+
+    <SolidColorBrush x:Key="ProgressBar_Background" po:Freeze="True" Color="#7F58C330" />
+    <SolidColorBrush x:Key="ProgressBar_Indicator" po:Freeze="True" Color="#FF77D392" />
+
+    <SolidColorBrush x:Key="Text_Background" po:Freeze="True" Color="White" />
+    <SolidColorBrush x:Key="Text_Border" po:Freeze="True" Color="#FFD4D4D4" />
+    <SolidColorBrush x:Key="Text_Foreground" po:Freeze="True" Color="#FF7B848B" />
+    <SolidColorBrush x:Key="Watermark_Foreground" po:Freeze="True" Color="#FFC7C7C7" />
+    <SolidColorBrush x:Key="Text_SelectionBrush" po:Freeze="True" Color="#BF9C9C9C" />
+    <SolidColorBrush x:Key="Text_SelectionForeground" po:Freeze="True" Color="#FFE8E8E8" />
+
+    <SolidColorBrush x:Key="ScrollBar_Background" po:Freeze="True" Color="#FFF3F3F3" />
+    <SolidColorBrush x:Key="ScrollBar_Border" po:Freeze="True" Color="#FFDEDEDE" />
+
+    <SolidColorBrush x:Key="MenuItem_Foreground" po:Freeze="True" Color="#FFDADADA" />
+    <SolidColorBrush x:Key="MenuItem_HotkeyForeground" po:Freeze="True" Color="#FFC5C5C5" />
+    <SolidColorBrush x:Key="MenuItem_ActiveForeground" po:Freeze="True" Color="#FFF7F7F7" />
+    <SolidColorBrush x:Key="MenuItem_ActiveBackground" po:Freeze="True" Color="#FF759DC5" />
+    <SolidColorBrush x:Key="Menu_HeaderActive" po:Freeze="True" Color="#FFEAEAEA" />
+    <SolidColorBrush x:Key="Menu_HeaderInactive" po:Freeze="True" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="Menu_Background" po:Freeze="True" Color="#FF40434F" />
+
+    <SolidColorBrush x:Key="ContextMenu_Foreground" po:Freeze="True" Color="#FF7B848B" />
+    <SolidColorBrush x:Key="ContextMenu_Hotkey" po:Freeze="True" Color="#FF939DA4" />
+    <SolidColorBrush x:Key="ContextMenu_ActiveForeground" po:Freeze="True" Color="WhiteSmoke" />
+    <SolidColorBrush x:Key="ContextMenu_Background" po:Freeze="True" Color="White" />
+    <SolidColorBrush x:Key="ContextMenu_Border" po:Freeze="True" Color="#FFD4D4D4" />
+    <SolidColorBrush x:Key="ContextMenu_ActiveBackground" po:Freeze="True" Color="#FF759DC5" />
+    <SolidColorBrush x:Key="ContextMenu_Separator" po:Freeze="True" Color="#FFD4D4D4" />
+</ResourceDictionary>

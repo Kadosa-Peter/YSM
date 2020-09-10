@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="Ysm.Downloader.Views.DownloadView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="60"
+             d:DesignWidth="600"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ysm.Controls;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="Text_DarkGray" Color="Gray" />
+            <SolidColorBrush x:Key="Text_LightGray" Color="#FFB6B6B6" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <Border Height="60"
+            HorizontalAlignment="Stretch"
+            Background="White"
+            BorderBrush="{StaticResource Window_Border}"
+            BorderThickness="0,0,0,1">
+        <DockPanel>
+            <!--  Thumbnail  -->
+
+            <Border Width="90" DockPanel.Dock="Left">
+                <Image Width="80"
+                       Height="45"
+                       Source="{Binding ThumbnailUrl}" />
+            </Border>
+            <!--  remove  -->
+
+            <Border Width="30" DockPanel.Dock="Right">
+                <controls:IconButton Click="Remove_OnClick"
+                                     MouseEnterIcon="../Resources/Icons/close_enter.png"
+                                     MouseLeaveIcon="../Resources/Icons/close_leave.png" />
+            </Border>
+
+            <!--  Controls  -->
+            <StackPanel x:Name="Controls"
+                        Margin="5"
+                        DockPanel.Dock="Right"
+                        Orientation="Horizontal"
+                        Visibility="Collapsed">
+                <TextBlock Margin="5"
+                           VerticalAlignment="Center"
+                           Cursor="Hand"
+                           FontFamily="Segoe UI Semibold"
+                           Foreground="#FF2040D3"
+                           MouseLeftButtonDown="ShowInFolder_OnClick"
+                           Text="Show in folder"
+                           TextDecorations="Underline" />
+                <TextBlock Margin="5"
+                           VerticalAlignment="Center"
+                           Cursor="Hand"
+                           FontFamily="Segoe UI Semibold"
+                           Foreground="#FF2040D3"
+                           MouseLeftButtonDown="Play_OnClick"
+                           Text="Play"
+                           TextDecorations="Underline" />
+            </StackPanel>
+
+            <!--  Progress  -->
+            <StackPanel x:Name="Progress"
+                        Width="250"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Right"
+                        Visibility="Collapsed">
+                <ProgressBar Height="20"
+                             Foreground="{Binding ProgressbarBrush}"
+                             Maximum="100"
+                             Minimum="0"
+                             Padding="1"
+                             Style="{StaticResource ProgressBarStyle}"
+                             Value="{Binding ProgressValue}" />
+                <DockPanel LastChildFill="False">
+                    <TextBlock FontSize="12"
+                               Foreground="{StaticResource Text_LightGray}"
+                               Text="{Binding ProgressState}" />
+                    <TextBlock DockPanel.Dock="Right"
+                               FontSize="12"
+                               Foreground="{StaticResource Text_LightGray}"
+                               Text="{Binding ProgressPercent}" />
+                </DockPanel>
+            </StackPanel>
+
+            <!--  In Queue  -->
+            <Border x:Name="Queue" DockPanel.Dock="Right">
+
+                <TextBlock Margin="10,0,10,0"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           Foreground="{StaticResource Text_LightGray}"
+                           Style="{StaticResource TextBlockStyle}"
+                           Text="In Queue" />
+
+            </Border>
+
+            <!--  Title  -->
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center"
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="14"
+                           Foreground="{StaticResource Text_DarkGray}"
+                           Text="{Binding Title}"
+                           TextTrimming="CharacterEllipsis" />
+                <StackPanel Grid.Row="1"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                    <TextBlock DockPanel.Dock="Right"
+                               FontFamily="Segoe UI Semibold"
+                               FontSize="12.5"
+                               Foreground="{StaticResource Text_LightGray}"
+                               Text="{Binding Duration}" />
+                    <TextBlock Margin="15,0,0,0"
+                               DockPanel.Dock="Right"
+                               FontFamily="Segoe UI Semibold"
+                               FontSize="12.5"
+                               Foreground="{StaticResource Text_LightGray}"
+                               Text="{Binding Size}" />
+                    <TextBlock Margin="15,0,0,0"
+                               DockPanel.Dock="Right"
+                               FontFamily="Segoe UI Semibold"
+                               FontSize="12.5"
+                               Foreground="{StaticResource Text_LightGray}"
+                               Text="{Binding Extension}" />
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+    </Border>
+</UserControl>

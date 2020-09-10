@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:models="clr-namespace:Ysm.Models.Iteration">
+
+    <HierarchicalDataTemplate x:Key="DateTemplate"
+                              DataType="{x:Type models:Node}"
+                              ItemsSource="{Binding Items}">
+        <DockPanel Margin="0,3,0,3" Background="Transparent">
+
+            <TextBlock x:Name="title"
+                       Margin="4,0,0,0"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI Semibold"
+                       FontSize="13"
+                       Foreground="{DynamicResource List_Foreground}"
+                       Text="{Binding Title}" />
+        </DockPanel>
+        <HierarchicalDataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                <Setter TargetName="title" Property="Foreground" Value="{DynamicResource List_SelectedForeground}" />
+            </DataTrigger>
+        </HierarchicalDataTemplate.Triggers>
+    </HierarchicalDataTemplate>
+
+    <HierarchicalDataTemplate x:Key="IterationTemplate" DataType="{x:Type models:Node}">
+        <DockPanel Margin="0,3,0,3" Background="Transparent">
+            <TextBlock x:Name="title"
+                       Margin="4,0,0,0"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe UI Semibold"
+                       FontSize="12.5"
+                       Foreground="#FFA8B2B9"
+                       Text="{Binding Title}" />
+        </DockPanel>
+        <HierarchicalDataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                <Setter TargetName="title" Property="Foreground" Value="{DynamicResource List_SelectedForeground}" />
+            </DataTrigger>
+        </HierarchicalDataTemplate.Triggers>
+    </HierarchicalDataTemplate>
+
+</ResourceDictionary>

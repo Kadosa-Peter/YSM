@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Ysm.Views.ChannelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:behaviors="clr-namespace:Ysm.Assets.Behaviors"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:Ysm.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Ysm.Models"
+             d:DesignHeight="600"
+             d:DesignWidth="250"
+             Loaded="ChannelView_OnLoaded"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <models:NodeTemplateSelector x:Key="NodeTemplateSelector" />
+    </UserControl.Resources>
+
+    <controls:Assistance Document="ysm-subscriptions">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <local:SearchView x:Name="SearchBox" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=1}, Path=Search.SearchQuery.Value, Mode=TwoWay}" />
+            <controls:ExtendedTreeView x:Name="NodeTree"
+                                       Grid.Row="1"
+                                       BorderThickness="0"
+                                       ItemContainerStyle="{DynamicResource TreeItemContainer}"
+                                       ItemTemplateSelector="{DynamicResource NodeTemplateSelector}"
+                                       ItemsSource="{Binding Nodes, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=1}}"
+                                       KeyDown="NodeTree_OnKeyDown"
+                                       MouseDoubleClick="NodeTree_OnMouseDoubleClick"
+                                       PreviewKeyDown="NodeTree_OnPreviewKeyDown"
+                                       SelectedItems="{Binding SelectedNodes, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=1}}"
+                                       SelectedItemsChanged="NodeTree_OnSelectedItemsChanged">
+                <i:Interaction.Behaviors>
+                    <behaviors:ChannelDragBehavior />
+                </i:Interaction.Behaviors>
+            </controls:ExtendedTreeView>
+        </Grid>
+    </controls:Assistance>
+</UserControl>

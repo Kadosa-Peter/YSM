@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Ysm.Views.SidebarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Ysm.Properties"
+             d:DesignHeight="600"
+             d:DesignWidth="25"
+             mc:Ignorable="d">
+
+    <controls:Assistance Document="ysm-sidebar">
+        <Grid>
+            <UniformGrid x:Name="Sidebar" Rows="6">
+
+                <controls:SideRadioButton x:Name="SubscriptionToggle"
+                                          Background="White"
+                                          BorderBrush="{StaticResource Window_Border}"
+                                          BorderThickness="0,0,1,1"
+                                          Checked="ViewToggle_OnChecked"
+                                          Content="{x:Static p:Resources.Button_Subscriptions}"
+                                          GroupName="Views"
+                                          IsChecked="True"
+                                          Side="Left" />
+                <controls:SideRadioButton x:Name="FavoritesToggle"
+                                          Background="White"
+                                          BorderBrush="{StaticResource Window_Border}"
+                                          BorderThickness="0,0,1,1"
+                                          Checked="ViewToggle_OnChecked"
+                                          Content="{x:Static p:Resources.Button_Favorites}"
+                                          GroupName="Views"
+                                          Side="Left" />
+                <controls:SideRadioButton x:Name="WatchLaterToggle"
+                                          Background="White"
+                                          BorderBrush="{StaticResource Window_Border}"
+                                          BorderThickness="0,0,1,1"
+                                          Checked="ViewToggle_OnChecked"
+                                          Content="{x:Static p:Resources.Button_WatchLater}"
+                                          GroupName="Views"
+                                          Side="Left" />
+                <controls:SideRadioButton x:Name="PlaylistsToggle"
+                                          Background="White"
+                                          BorderBrush="{StaticResource Window_Border}"
+                                          BorderThickness="0,0,1,1"
+                                          Checked="ViewToggle_OnChecked"
+                                          Content="{x:Static p:Resources.Button_Playlists}"
+                                          GroupName="Views"
+                                          Side="Left" />
+                <controls:SideRadioButton x:Name="NotesToggle"
+                                          Background="White"
+                                          BorderBrush="{StaticResource Window_Border}"
+                                          BorderThickness="0,0,1,1"
+                                          Checked="ViewToggle_OnChecked"
+                                          Content="{x:Static p:Resources.Button_Markers}"
+                                          GroupName="Views"
+                                          Side="Left" />
+                <controls:SideRadioButton x:Name="HistoryToggle"
+                                          Background="White"
+                                          BorderBrush="{StaticResource Window_Border}"
+                                          BorderThickness="0,0,1,0"
+                                          Checked="ViewToggle_OnChecked"
+                                          Content="{x:Static p:Resources.Button_History}"
+                                          GroupName="Views"
+                                          Side="Left" />
+
+            </UniformGrid>
+        </Grid>
+    </controls:Assistance>
+
+</UserControl>

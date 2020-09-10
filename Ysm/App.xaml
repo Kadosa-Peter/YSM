@@ -1,0 +1,23 @@
+﻿<Application
+    x:Class="Ysm.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assets="clr-namespace:Ysm.Assets"
+    DispatcherUnhandledException="App_OnDispatcherUnhandledException"
+    ShutdownMode="OnMainWindowClose"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <assets:CommandBindingHelper x:Key="CommandBindingHelper" />
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/Ysm;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/Ysm.Controls;component/Themes/Generic.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

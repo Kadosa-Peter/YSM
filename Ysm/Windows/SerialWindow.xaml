@@ -1,0 +1,89 @@
+﻿<controls:ExtendedWindow
+    x:Class="Ysm.Windows.SerialWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Ysm.Controls;assembly=Ysm.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:Ysm.Properties"
+    Title="{x:Static p:Resources.WindowTitle_ProductKey}"
+    Width="400"
+    MinHeight="160"
+    Activated="SerialWindow2_OnActivated"
+    Icon="../Resources/icon.ico"
+    SizeToContent="Height"
+    Style="{StaticResource ExtendedWindowStyle}"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Grid Background="{DynamicResource Window_Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="10,0,10,0" VerticalAlignment="Center">
+
+            <TextBlock
+                x:Name="SerialWindowTitle"
+                Margin="0,15,0,15"
+                FontSize="15"
+                Style="{DynamicResource TextBlockStyle}"
+                Text="{x:Static p:Resources.Title_SerialWindowTitle}" />
+
+            <TextBlock
+                FontSize="14"
+                Style="{DynamicResource TextBlockStyle}"
+                Text="{x:Static p:Resources.Title_ProductKey}" />
+
+            <controls:WatermarkTextBox
+                Margin="0,10,0,10"
+                FontSize="13"
+                Text="{Binding Serial}"
+                Watermark="XXXX-XXXX-XXXX-XXXX-XXXX" />
+
+            <TextBlock
+                x:Name="InvalidProductKey"
+                Margin="0,0,0,10"
+                FontSize="12.5"
+                Foreground="#FFE6342B"
+                Style="{DynamicResource TextBlockStyle}"
+                Text="{x:Static p:Resources.Title_InvalidProductKey}"
+                Visibility="{Binding IsInvalid, Converter={StaticResource BooleanToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}" />
+
+        </StackPanel>
+
+        <Border
+            Grid.Row="1"
+            BorderBrush="{DynamicResource Window_Border}"
+            BorderThickness="0,1,0,0">
+            <DockPanel LastChildFill="False">
+                <Button
+                    BorderThickness="1,0,0,0"
+                    Click="Validate_OnClick"
+                    Content="{x:Static p:Resources.Button_Validate}"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource FooterButtonStyle}" />
+                <Button
+                    BorderThickness="1,0,0,0"
+                    Click="Close_OnClick"
+                    Content="{x:Static p:Resources.Button_Close}"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource FooterButtonStyle}" />
+
+                <TextBlock
+                    Margin="15,0,0,0"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Foreground="CornflowerBlue"
+                    MouseLeftButtonDown="StoreLink_OnMouseLeftButtonDown"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Buy Now"
+                    TextDecorations="Underline" />
+
+            </DockPanel>
+        </Border>
+
+    </Grid>
+</controls:ExtendedWindow>
+

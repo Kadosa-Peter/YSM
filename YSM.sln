@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2037
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ysm.Data", "Ysm.Data\Ysm.Data.csproj", "{7DB69941-8A3D-419A-9AEC-83DD33D33277}"
 EndProject
@@ -25,6 +25,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ysm.Setup", "Ysm.Setup\Ysm.Setup.csproj", "{BF7019B6-B076-4D71-AD9A-202B41941900}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ysm.Test", "Ysm.Test\Ysm.Test.csproj", "{5CF0D9AD-20ED-4E98-899C-7EA987B3C2E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ysm.Core.Tests", "Ysm.Core.Tests\Ysm.Core.Tests.csproj", "{A6631525-F7DF-43B3-969B-D6F993781549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,6 +108,14 @@ Global
 		{5CF0D9AD-20ED-4E98-899C-7EA987B3C2E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CF0D9AD-20ED-4E98-899C-7EA987B3C2E8}.Release|x86.ActiveCfg = Release|x86
 		{5CF0D9AD-20ED-4E98-899C-7EA987B3C2E8}.Release|x86.Build.0 = Release|x86
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Debug|x86.Build.0 = Debug|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Release|x86.ActiveCfg = Release|Any CPU
+		{A6631525-F7DF-43B3-969B-D6F993781549}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
